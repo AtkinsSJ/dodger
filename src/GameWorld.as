@@ -50,7 +50,7 @@ package
 			scoreText.text = "Score: " + score;
 			
 			if ((score % spawnDelay) == 0) {
-				add(new Rock( Random.randInt(0, FP.width - 16) ));
+				add(new Rock( Random.getInt(0, FP.width - 16) ));
 			}
 			
 			if ((spawnDelay > 1) && ((score % 200) == 0)) {
