@@ -25,7 +25,7 @@ package
 		
 		override public function begin():void 
 		{
-			Enemy.dropTime = 3;
+			Rock.dropTime = 3;
 			spawnDelay = 16;
 			
 			player = new Player();
@@ -50,15 +50,15 @@ package
 			scoreText.text = "Score: " + score;
 			
 			if ((score % spawnDelay) == 0) {
-				add(new Enemy( Random.randInt(0, FP.width - 16) ));
+				add(new Rock( Random.randInt(0, FP.width - 16) ));
 			}
 			
 			if ((spawnDelay > 1) && ((score % 200) == 0)) {
 				spawnDelay--;
 			}
 			
-			if ((Enemy.dropTime > 0.5) && ((score % 100) == 0)) {
-				Enemy.dropTime -= 0.1;
+			if ((Rock.dropTime > 0.5) && ((score % 100) == 0)) {
+				Rock.dropTime -= 0.1;
 			}
 			
 			super.update();
