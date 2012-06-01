@@ -1,5 +1,6 @@
 package  
 {
+	import atkinslib.ScreenEffects;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
@@ -13,6 +14,7 @@ package
 	 */
 	public class MenuWorld extends World 
 	{
+		private var screenEffects:ScreenEffects;
 		
 		public function MenuWorld() 
 		{
@@ -21,6 +23,10 @@ package
 		
 		override public function begin():void 
 		{
+			screenEffects = new ScreenEffects();
+			add(screenEffects);
+			screenEffects.fadeFromBlack();
+			
 			addGraphic( new Text("49 Games", 0, 20, 
 				{
 					align: "center",
@@ -54,7 +60,9 @@ package
 		override public function update():void 
 		{
 			if (Input.pressed(Key.SPACE)) {
-				FP.world = new GameWorld();
+				screenEffects.fadeToBlack(0.7, function():void {
+					FP.world = new GameWorld();
+				});
 			}
 			
 			super.update();

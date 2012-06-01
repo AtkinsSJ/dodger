@@ -33,7 +33,7 @@ package
 		{
 			screenEffects = new ScreenEffects();
 			add(screenEffects);
-			screenEffects.layer = -1000;
+			screenEffects.fadeFromBlack();
 			
 			Rock.dropTime = 3;
 			spawnDelay = 16;
@@ -80,8 +80,7 @@ package
 		public function gameOver():void
 		{
 			alive = false;
-			screenEffects.fadeToBlack(1.0, function():void {
-				trace("In callback");
+			screenEffects.fadeToBlack(0.7, function():void {
 				FP.world = new GameOverWorld(score);
 			});
 		}

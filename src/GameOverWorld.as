@@ -1,5 +1,6 @@
 package  
 {
+	import atkinslib.ScreenEffects;
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
@@ -13,6 +14,7 @@ package
 	public class GameOverWorld extends World 
 	{
 		private var score:int;
+		private var screenEffects:ScreenEffects;
 		
 		public function GameOverWorld(myScore:int) 
 		{
@@ -21,6 +23,10 @@ package
 		
 		override public function begin():void 
 		{
+			screenEffects = new ScreenEffects();
+			add(screenEffects);
+			screenEffects.fadeFromBlack();
+			
 			addGraphic( new Text("GAME OVER!", 0, 50, 
 				{
 					align: "center",
@@ -54,7 +60,9 @@ package
 		override public function update():void 
 		{
 			if (Input.pressed(Key.SPACE)) {
-				FP.world = new MenuWorld();
+				screenEffects.fadeToBlack(0.7, function():void {
+					FP.world = new MenuWorld();
+				});
 			}
 			
 			super.update();

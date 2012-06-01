@@ -20,21 +20,40 @@ package atkinslib
 		{
 			graphic = blackBox = new Image(new BitmapData(FP.width, FP.height, true, 0xff000000));
 			blackBox.visible = false;
-		}
-		
-		public function fadeFromBlack():void
-		{
 			
+			layer = -1000;
 		}
 		
-		public function fadeToBlack(duration:Number = 1.0, callback:Function=null):void
+		public function fadeFromBlack(duration:Number = 0.7, callback:Function=null):void
 		{
 			if (fadeTween != null) {
 				// We only want to execute once at a time.
 				return;
 			}
 			
-			trace("FadeToBlack");
+			fadeCallback = callback;
+			fadeTween = new NumTween(fadeFromBlackFinished);
+			addTween(fadeTween);
+			blackBox.visible = true;
+			fadeTween.tween(1, 0, duration);
+		}
+		
+		public function fadeFromBlackFinished():void
+		{
+			if (fadeCallback != null) {
+				fadeCallback();
+			}
+			fadeTween = null;
+			blackBox.visible = false;
+		}
+		
+		public function fadeToBlack(duration:Number = 0.7, callback:Function=null):void
+		{
+			if (fadeTween != null) {
+				// We only want to execute once at a time.
+				return;
+			}
+			
 			fadeCallback = callback;
 			fadeTween = new NumTween(fadeToBlackFinished);
 			addTween(fadeTween);
@@ -44,11 +63,10 @@ package atkinslib
 		
 		public function fadeToBlackFinished():void
 		{
-			trace("Callback!");
 			if (fadeCallback != null) {
-				trace("Callback executed!");
 				fadeCallback();
 			}
+			fadeTween = null;
 		}
 		
 		override public function update():void 

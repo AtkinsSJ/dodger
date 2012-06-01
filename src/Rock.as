@@ -42,6 +42,8 @@ package
 			
 			graphic = image = Assets.getRock(); //new BitmapData(16, 16, true, 0xffff0000));
 			image.centerOrigin();
+			image.x = 8;
+			image.y = 8;
 			
 			setHitbox(16, 16, 0, 0);
 			type = "rock";
