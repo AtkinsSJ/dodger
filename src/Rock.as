@@ -20,6 +20,7 @@ package
 		
 		private var angleTween:NumTween = new NumTween(resetRotation);
 		private var rotationTime:Number;
+		private var rotateClockwise:Boolean;
 		
 		private var image:Image;
 		
@@ -37,8 +38,9 @@ package
 			addTween(angleTween);
 			var startAngle:Number = Random.getAngle();
 			angleTween.tween( startAngle, 360, (rotationTime * (startAngle / 360)) );
+			rotateClockwise = Random.getBoolean();
 			
-			graphic = image = new Image(Assets.ROCK_IMG); //new BitmapData(16, 16, true, 0xffff0000));
+			graphic = image = Assets.getRock(); //new BitmapData(16, 16, true, 0xffff0000));
 			image.centerOrigin();
 			
 			setHitbox(16, 16, 0, 0);
@@ -53,7 +55,11 @@ package
 			
 			//image.angle = angleTween.angle;
 			//trace(angleTween.angle);
-			image.angle = angleTween.value;
+			if (rotateClockwise) {
+				image.angle = 360 - angleTween.value;
+			} else {
+				image.angle = angleTween.value;
+			}
 			
 			super.update();
 		}
