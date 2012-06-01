@@ -27,8 +27,7 @@ package
 			
 			// If we collide with an enemy, game over
 			if (collide("rock", x, y)) {
-				var score:int = (FP.world as GameWorld).getScore();
-				FP.world = new GameOverWorld(score);
+				(FP.world as GameWorld).gameOver();
 			}
 			
 			super.update();
