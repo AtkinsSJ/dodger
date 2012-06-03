@@ -2,6 +2,7 @@ package
 {
 	import atkinslib.ScreenEffects;
 	import net.flashpunk.graphics.Emitter;
+	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.ParticleType;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.Screen;
@@ -78,6 +79,9 @@ package
 						.setColor(0x613624)
 						.setGravity(6, 4);
 			addGraphic(emitter, -900);
+			
+			// Background image
+			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
 			
 			super.begin();
 		}
