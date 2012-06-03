@@ -1,12 +1,12 @@
 package  
 {
 	import atkinslib.ScreenEffects;
-	import net.flashpunk.graphics.Text;
-	import net.flashpunk.World;
+	import atkinslib.ui.Button;
 	import net.flashpunk.FP;
-	
-	import net.flashpunk.utils.Key;
+	import net.flashpunk.graphics.Text;
 	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
+	import net.flashpunk.World;
 	
 	/**
 	 * ...
@@ -53,6 +53,8 @@ package
 					width: FP.width
 				}
 			));
+			
+			add(new Button());
 			
 			super.begin();
 		}

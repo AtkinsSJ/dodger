@@ -6,6 +6,7 @@ package
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
 	import atkinslib.Random;
+	import net.flashpunk.utils.Input;
 	
 	/**
 	 * ...
@@ -19,6 +20,9 @@ package
 		
 		private var score:int;
 		private var scoreText:Text;
+		
+		private var lives:int;
+		private var livesText:Text;
 		
 		private var spawnDelay:int;
 		
@@ -50,6 +54,15 @@ package
 			// Add the score as an entity, and put it at the front.
 			addGraphic(scoreText).layer = -999;
 			
+			lives = player.getLives();
+			livesText = new Text("Lives: " + lives, 0, 0, {
+				size: 16,
+				color: 0xffffff,
+				width: FP.width,
+				align: "right"
+			});
+			// Add the lives as an entity, and put it at the front.
+			addGraphic(livesText).layer = -999;
 			
 			super.begin();
 		}
@@ -62,6 +75,12 @@ package
 				scoreText.text = "Score: " + score;
 			}
 			
+			// Change lives text if lives has changed.
+			if (lives != player.getLives()) {
+				lives = player.getLives();
+				livesText.text = "Lives: " + lives;
+			}
+			
 			if ((score % spawnDelay) == 0) {
 				add(new Rock( Random.getInt(0, FP.width - 16) ));
 			}
@@ -72,6 +91,11 @@ package
 			
 			if ((Rock.dropTime > 0.5) && ((score % 100) == 0)) {
 				Rock.dropTime -= 0.1;
+			}
+			
+			// TEST
+			if (Input.check("jump")) {
+				screenEffects.shake();
 			}
 			
 			super.update();
