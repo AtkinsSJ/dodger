@@ -1,6 +1,7 @@
 package  
 {
 	import atkinslib.ScreenEffects;
+	import atkinslib.ui.Button;
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
@@ -45,29 +46,35 @@ package
 				}
 			));
 			
-			addGraphic( new Text("Press space to return to menu", 0, 160, 
-				{
-					align: "center",
-					size: 8,
-					color: 0xffffff,
-					width: FP.width
-				}
-			));
+			//addGraphic( new Text("Press space to return to menu", 0, 160, 
+				//{
+					//align: "center",
+					//size: 8,
+					//color: 0xffffff,
+					//width: FP.width
+				//}
+			//));
+			
+			add(new Button(120, 160, 80, "Main Menu", goToMenu));
 			
 			super.begin();
 		}
 		
 		override public function update():void 
 		{
-			if (Input.pressed(Key.SPACE)) {
-				screenEffects.fadeToBlack(0.7, function():void {
-					FP.world = new MenuWorld();
-				});
-			}
+			//if (Input.pressed(Key.SPACE)) {
+				//goToMenu();
+			//}
 			
 			super.update();
 		}
 		
+		private function goToMenu():void
+		{
+			screenEffects.fadeToBlack(0.7, function():void {
+				FP.world = new MenuWorld();
+			});
+		}
 	}
 
 }
