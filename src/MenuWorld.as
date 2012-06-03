@@ -61,9 +61,9 @@ package
 		
 		override public function update():void 
 		{
-			if (Input.pressed(Key.SPACE)) {
-				startGame();
-			}
+			//if (Input.pressed(Key.SPACE)) {
+				//startGame();
+			//}
 			
 			super.update();
 		}
