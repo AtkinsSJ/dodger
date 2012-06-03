@@ -1,12 +1,16 @@
 package  
 {
 	import atkinslib.ScreenEffects;
+	import net.flashpunk.graphics.Emitter;
+	import net.flashpunk.graphics.ParticleType;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.Screen;
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
 	import atkinslib.Random;
 	import net.flashpunk.utils.Input;
+	import flash.display.BitmapData;
+	import net.flashpunk.utils.Ease;
 	
 	/**
 	 * ...
@@ -27,6 +31,8 @@ package
 		private var spawnDelay:int;
 		
 		private var alive:Boolean = true;
+		
+		public var emitter:Emitter;
 		
 		public function GameWorld() 
 		{
@@ -63,6 +69,15 @@ package
 			});
 			// Add the lives as an entity, and put it at the front.
 			addGraphic(livesText).layer = -999;
+			
+			// Particle emitter!
+			emitter = new Emitter(new BitmapData(2, 2, true, 0xffffffff), 2, 2);
+			var dustParticle:ParticleType = emitter.newType("dust", [0]);
+			dustParticle.setMotion(0, 20, 1, 360, 20, 1.5, Ease.quadOut)
+						.setAlpha(1, 0)
+						.setColor(0x613624)
+						.setGravity(6, 4);
+			addGraphic(emitter, -900);
 			
 			super.begin();
 		}

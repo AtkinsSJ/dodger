@@ -1,8 +1,11 @@
 package  
 {
 	import net.flashpunk.Entity;
+	import net.flashpunk.graphics.Emitter;
+	import net.flashpunk.graphics.Graphiclist;
 	import net.flashpunk.graphics.Image;
 	import flash.display.BitmapData;
+	import net.flashpunk.graphics.ParticleType;
 	import net.flashpunk.tweens.misc.NumTween;
 	import net.flashpunk.tweens.motion.LinearMotion;
 	import net.flashpunk.FP;
@@ -23,6 +26,7 @@ package
 		private var rotateClockwise:Boolean;
 		
 		private var image:Image;
+		private var emitter:Emitter;
 		
 		public function Rock(myX:int) 
 		{
@@ -40,10 +44,13 @@ package
 			angleTween.tween( startAngle, 360, (rotationTime * (startAngle / 360)) );
 			rotateClockwise = Random.getBoolean();
 			
-			graphic = image = Assets.getRock(); //new BitmapData(16, 16, true, 0xffff0000));
+			// Rock image
+			image = Assets.getRock();
 			image.centerOrigin();
 			image.x = 8;
 			image.y = 8;
+			
+			graphic = image;
 			
 			setHitbox(16, 16, 0, 0);
 			type = "rock";
@@ -71,6 +78,11 @@ package
 		 */
 		public function explode():void
 		{
+			// Particles!
+			for (var i:uint = 0; i < 70; i++) {
+				(FP.world as GameWorld).emitter.emit("dust", x+halfWidth, y+halfHeight);
+			}
+			
 			die();
 		}
 		
