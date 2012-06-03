@@ -45,16 +45,16 @@ package
 				}
 			));
 			
-			addGraphic( new Text("Press space to begin", 0, 160, 
-				{
-					align: "center",
-					size: 8,
-					color: 0xffffff,
-					width: FP.width
-				}
-			));
+			//addGraphic( new Text("Press space to begin", 0, 160, 
+				//{
+					//align: "center",
+					//size: 8,
+					//color: 0xffffff,
+					//width: FP.width
+				//}
+			//));
 			
-			add(new Button());
+			add(new Button(120, 160, 80, "Start Game", startGame));
 			
 			super.begin();
 		}
@@ -62,12 +62,17 @@ package
 		override public function update():void 
 		{
 			if (Input.pressed(Key.SPACE)) {
-				screenEffects.fadeToBlack(0.7, function():void {
-					FP.world = new GameWorld();
-				});
+				startGame();
 			}
 			
 			super.update();
+		}
+		
+		private function startGame():void
+		{
+			screenEffects.fadeToBlack(0.7, function():void {
+				FP.world = new GameWorld();
+			});
 		}
 	}
 

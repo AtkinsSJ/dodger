@@ -2,6 +2,7 @@ package atkinslib.ui
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.graphics.Text;
 	import net.flashpunk.utils.Input;
 	
 	/**
@@ -14,15 +15,38 @@ package atkinslib.ui
 		private static const STATE_HOVER:int = 1;
 		private static const STATE_CLICK:int = 2;
 		
-		private var state:int;
-		private var image:Image;
+		protected var state:int;
+		protected var image:Image;
 		
-		public function Button() 
+		private var clickFunction:Function = null;
+		
+		protected var _text:Text;
+		
+		/**
+		 * Create a new Button
+		 * @param	myX
+		 * @param	myY
+		 * @param	onClick - Function to run when the buttin is clicked.
+		 */
+		public function Button(x:int, y:int, w:int, text:String, onClick:Function = null) 
 		{
-			state = STATE_DEFAULT;
+			this.x = x;
+			this.y = y;
+			clickFunction = onClick;
+			setHitbox(w, 20);
 			
-			graphic = image = Image.createRect(100, 20);
-			setHitbox(100, 20);
+			_text = new Text(text, 0, 4, {
+				align: "center",
+				size: 8,
+				color: 0x000000,
+				width: width
+			});
+			
+			state = STATE_DEFAULT;
+			image = Image.createRect(width, height);
+			
+			addGraphic(image);
+			addGraphic(_text);
 		}
 		
 		override public function update():void 
@@ -67,10 +91,12 @@ package atkinslib.ui
 		}
 		
 		/**
-		 * Called when the button has been clicked. Override this!
+		 * Called when the button has been clicked.
 		 */
-		protected function click() void {
-			
+		protected function click():void {
+			if (clickFunction != null) {
+				clickFunction();
+			}
 		}
 		
 	}
