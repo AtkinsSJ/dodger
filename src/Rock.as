@@ -62,6 +62,11 @@ package
 			x = motionTween.x;
 			y = motionTween.y;
 			
+			// Explode if we hit the ground
+			if (collideRect(x, y, 0, 215, FP.width, 30)) {
+				explode();
+			}
+			
 			//image.angle = angleTween.angle;
 			//trace(angleTween.angle);
 			if (rotateClockwise) {

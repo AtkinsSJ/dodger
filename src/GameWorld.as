@@ -72,12 +72,12 @@ package
 			addGraphic(livesText).layer = -999;
 			
 			// Particle emitter!
-			emitter = new Emitter(new BitmapData(2, 2, true, 0xffffffff), 2, 2);
+			emitter = new Emitter(new BitmapData(2, 2), 2, 2);
 			var dustParticle:ParticleType = emitter.newType("dust", [0]);
-			dustParticle.setMotion(0, 20, 1, 360, 20, 1.5, Ease.quadOut)
+			dustParticle.setMotion(0, 15, 0.5, 360, 10, 0.5, Ease.quadOut)
 						.setAlpha(1, 0)
 						.setColor(0x613624)
-						.setGravity(6, 4);
+						.setGravity(1, 1);
 			addGraphic(emitter, -900);
 			
 			// Background image
