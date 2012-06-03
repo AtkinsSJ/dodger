@@ -28,8 +28,10 @@ package
 			x = Input.mouseX - 8;
 			
 			// If we collide with an enemy, game over
-			if (collide("rock", x, y)) {
+			var rock:Rock = collide("rock", x, y) as Rock;
+			if (rock) {
 				loseLife();
+				rock.explode();
 			}
 			
 			super.update();

@@ -66,6 +66,17 @@ package
 			super.update();
 		}
 		
+		/**
+		 * Explode into particles
+		 */
+		public function explode():void
+		{
+			die();
+		}
+		
+		/**
+		 * Removes the rock from the world
+		 */
 		public function die():void
 		{
 			//trace("Enemy died");

@@ -20,9 +20,9 @@ package
 			//FP.console.enable();
 			FP.console.toggleKey = 223;
 			
-			Input.define("left", Key.LEFT, Key.A);
-			Input.define("right", Key.RIGHT, Key.D);
-			Input.define("jump", Key.UP, Key.W);
+			//Input.define("left", Key.LEFT, Key.A);
+			//Input.define("right", Key.RIGHT, Key.D);
+			//Input.define("jump", Key.UP, Key.W);
 		}
 		
 		override public function init():void 
