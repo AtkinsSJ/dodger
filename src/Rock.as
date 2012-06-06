@@ -84,7 +84,7 @@ package
 		public function explode():void
 		{
 			// Particles!
-			(world as GameWorld).emitParticles("dust", x+halfWidth, y+halfHeight, 50);
+			(world as GameWorld).emitParticles("dust", x, y, 50);
 			
 			die();
 		}

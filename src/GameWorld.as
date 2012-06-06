@@ -77,7 +77,7 @@ package
 			// Dust particles
 			var dustParticle:ParticleType = emitter.newType("dust", [1,2,3]);
 			dustParticle.setMotion(0, 15, 0.5, 360, 10, 0.5, Ease.quadOut)
-						.setAlpha(1, 0)
+						.setAlpha(1, 0, Ease.quadIn)
 						.setColor(0x613624)
 						.setGravity(1, 1);
 			var fireParticle:ParticleType = emitter.newType("fire", [1,2,3,4]);
