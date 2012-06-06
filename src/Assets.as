@@ -11,6 +11,8 @@ package
 	{
 		[Embed(source = "../assets/background.png")] public static const BACKGROUND_IMG:Class;
 		
+		[Embed(source = "../assets/particles.png")] public static const PARTICLE_IMG:Class;
+		
 		[Embed(source = "../assets/rock.png")] public static const ROCK_IMG:Class;
 		private static const ROCK_WIDTH:int = 16;
 		private static const ROCK_HEIGHT:int = 16;

@@ -72,13 +72,18 @@ package
 			addGraphic(livesText).layer = -999;
 			
 			// Particle emitter!
-			emitter = new Emitter(new BitmapData(2, 2), 2, 2);
-			var dustParticle:ParticleType = emitter.newType("dust", [0]);
+			emitter = new Emitter(Assets.PARTICLE_IMG, 8,8);
+			addGraphic(emitter, -900);
+			// Dust particles
+			var dustParticle:ParticleType = emitter.newType("dust", [1,2,3]);
 			dustParticle.setMotion(0, 15, 0.5, 360, 10, 0.5, Ease.quadOut)
 						.setAlpha(1, 0)
 						.setColor(0x613624)
 						.setGravity(1, 1);
-			addGraphic(emitter, -900);
+			var fireParticle:ParticleType = emitter.newType("fire", [1,2,3,4]);
+			fireParticle.setMotion(0, 5, 1, 360, 5, 0.5, Ease.cubeOut)
+						.setAlpha(1, 0, Ease.cubeIn)
+						.setColor(0xff9900, 0x000000, Ease.quadOut);
 			
 			// Background image
 			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);

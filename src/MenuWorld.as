@@ -25,7 +25,7 @@ package
 		{
 			screenEffects = new ScreenEffects();
 			add(screenEffects);
-			screenEffects.fadeFromBlack();
+			//screenEffects.fadeFromBlack();
 			
 			addGraphic( new Text("49 Games", 0, 20, 
 				{

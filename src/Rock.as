@@ -75,6 +75,9 @@ package
 				image.angle = angleTween.value;
 			}
 			
+			// Fire!
+			(world as GameWorld).emitter.emit("fire", x+halfWidth, y+halfHeight);
+			
 			super.update();
 		}
 		
@@ -85,7 +88,7 @@ package
 		{
 			// Particles!
 			for (var i:uint = 0; i < 70; i++) {
-				(FP.world as GameWorld).emitter.emit("dust", x+halfWidth, y+halfHeight);
+				(world as GameWorld).emitter.emit("dust", x+halfWidth, y+halfHeight);
 			}
 			
 			die();
