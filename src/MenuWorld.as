@@ -16,7 +16,7 @@ package
 	{
 		private var screenEffects:ScreenEffects;
 		
-		static var fadeIn:Boolean = false;
+		private static var fadeIn:Boolean = false;
 		
 		public function MenuWorld() 
 		{
@@ -43,7 +43,7 @@ package
 				}
 			));
 			
-			addGraphic( new Text("Game 1: 'Dodger'", 0, 50, 
+			addGraphic( new Text("Game 1: Meteor Strike", 0, 50, 
 				{
 					align: "center",
 					size: 16,
@@ -52,14 +52,15 @@ package
 				}
 			));
 			
-			//addGraphic( new Text("Press space to begin", 0, 160, 
-				//{
-					//align: "center",
-					//size: 8,
-					//color: 0xffffff,
-					//width: FP.width
-				//}
-			//));
+			addGraphic( new Text("Move using the mouse, and try to survive\nthe meteor strike for as long as possible!", 0, 120, 
+				{
+					align: "center",
+					size: 8,
+					color: 0xffffff,
+					width: FP.width,
+					wordWrap: true
+				}
+			));
 			
 			add(new Button(120, 160, 80, "Start Game", startGame));
 			
