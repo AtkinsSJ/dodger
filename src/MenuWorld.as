@@ -16,6 +16,8 @@ package
 	{
 		private var screenEffects:ScreenEffects;
 		
+		static var fadeIn:Boolean = false;
+		
 		public function MenuWorld() 
 		{
 			
@@ -25,7 +27,12 @@ package
 		{
 			screenEffects = new ScreenEffects();
 			add(screenEffects);
-			//screenEffects.fadeFromBlack();
+			
+			// Don't fade in the first time.
+			if (fadeIn) {
+				screenEffects.fadeFromBlack();
+			}
+			fadeIn = true;
 			
 			addGraphic( new Text("49 Games", 0, 20, 
 				{
