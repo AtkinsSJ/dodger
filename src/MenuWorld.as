@@ -7,6 +7,7 @@ package
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import net.flashpunk.World;
+	import flash.events.Event;
 	
 	/**
 	 * ...

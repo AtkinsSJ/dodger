@@ -1,5 +1,6 @@
 package  
 {
+	import atkinslib.PauseScreen;
 	import atkinslib.ScreenEffects;
 	import net.flashpunk.graphics.Emitter;
 	import net.flashpunk.graphics.Image;
@@ -35,6 +36,9 @@ package
 		
 		public var emitter:Emitter;
 		
+		private var paused:Boolean;
+		private var pauseScreen:PauseScreen;
+		
 		public function GameWorld() 
 		{
 			
@@ -42,6 +46,10 @@ package
 		
 		override public function begin():void 
 		{
+			paused = false;
+			pauseScreen = new PauseScreen();
+			add(pauseScreen);
+			
 			screenEffects = new ScreenEffects();
 			add(screenEffects);
 			screenEffects.fadeFromBlack();
@@ -93,36 +101,38 @@ package
 		
 		override public function update():void 
 		{
-			// Update the score, unless we've lost.
-			if (alive) {
-				score++;
-				scoreText.text = "Score: " + score;
+			if (!paused) {
+				// Update the score, unless we've lost.
+				if (alive) {
+					score++;
+					scoreText.text = "Score: " + score;
+				}
+				
+				// Change lives text if lives has changed.
+				if (lives != player.getLives()) {
+					lives = player.getLives();
+					livesText.text = "Lives: " + lives;
+				}
+				
+				if ((score % spawnDelay) == 0) {
+					add(new Rock( Random.getInt(0, FP.width - 16) ));
+				}
+				
+				if ((spawnDelay > 1) && ((score % 200) == 0)) {
+					spawnDelay--;
+				}
+				
+				if ((Rock.dropTime > 0.5) && ((score % 100) == 0)) {
+					Rock.dropTime -= 0.1;
+				}
+				
+				// TEST
+				if (Input.check("jump")) {
+					screenEffects.shake();
+				}
+				
+				super.update();
 			}
-			
-			// Change lives text if lives has changed.
-			if (lives != player.getLives()) {
-				lives = player.getLives();
-				livesText.text = "Lives: " + lives;
-			}
-			
-			if ((score % spawnDelay) == 0) {
-				add(new Rock( Random.getInt(0, FP.width - 16) ));
-			}
-			
-			if ((spawnDelay > 1) && ((score % 200) == 0)) {
-				spawnDelay--;
-			}
-			
-			if ((Rock.dropTime > 0.5) && ((score % 100) == 0)) {
-				Rock.dropTime -= 0.1;
-			}
-			
-			// TEST
-			if (Input.check("jump")) {
-				screenEffects.shake();
-			}
-			
-			super.update();
 		}
 		
 		public function gameOver():void
@@ -147,6 +157,29 @@ package
 			}
 		}
 		
+		/**
+		 * Pause the game!
+		 */
+		public function pause():void
+		{
+			if (!paused) {
+				pauseScreen.visible = true;
+				paused = true;
+				emitter.active = false;
+			}
+		}
+		
+		/**
+		 * Unpause the game.
+		 */
+		public function unpause():void
+		{
+			if (paused) {
+				paused = false;
+				pauseScreen.visible = false;
+				emitter.active = true;
+			}
+		}
 	}
 
 }
