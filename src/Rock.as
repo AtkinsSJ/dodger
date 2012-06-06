@@ -58,7 +58,6 @@ package
 		
 		override public function update():void 
 		{
-			//this.y += velocity;
 			x = motionTween.x;
 			y = motionTween.y;
 			
@@ -67,8 +66,6 @@ package
 				explode();
 			}
 			
-			//image.angle = angleTween.angle;
-			//trace(angleTween.angle);
 			if (rotateClockwise) {
 				image.angle = 360 - angleTween.value;
 			} else {
@@ -76,7 +73,7 @@ package
 			}
 			
 			// Fire!
-			(world as GameWorld).emitter.emit("fire", x+halfWidth, y+halfHeight);
+			(world as GameWorld).emitParticles("fire", x, y, 4);
 			
 			super.update();
 		}
@@ -87,9 +84,7 @@ package
 		public function explode():void
 		{
 			// Particles!
-			for (var i:uint = 0; i < 70; i++) {
-				(world as GameWorld).emitter.emit("dust", x+halfWidth, y+halfHeight);
-			}
+			(world as GameWorld).emitParticles("dust", x+halfWidth, y+halfHeight, 50);
 			
 			die();
 		}

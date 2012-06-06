@@ -133,6 +133,20 @@ package
 			});
 		}
 		
+		/**
+		 * Emit some particles!
+		 * @param	type - the particle type name
+		 * @param	x - the x position to centre the particles on
+		 * @param	y - the y position to centre the particles on
+		 * @param	count - how many to emit
+		 */
+		public function emitParticles(type:String, x:int, y:int, count:uint):void
+		{
+			for (var i:uint = 0; i < count; i++) {
+				emitter.emit(type, x+4, y+4);
+			}
+		}
+		
 	}
 
 }
