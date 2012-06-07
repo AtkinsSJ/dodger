@@ -4,6 +4,7 @@ package
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.Input;
+	import net.flashpunk.FP;
 	
 	/**
 	 * ...
@@ -28,6 +29,13 @@ package
 		override public function update():void 
 		{
 			x = Input.mouseX - 8;
+			
+			// Constrain position to the screen
+			if (x < 0) {
+				x = 0;
+			} else if ( (x + width) > FP.width) {
+				x = FP.width - width;
+			}
 			
 			// If we collide with an enemy, game over
 			var rock:Rock = collide("rock", x, y) as Rock;
