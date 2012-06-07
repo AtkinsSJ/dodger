@@ -23,7 +23,7 @@ package
 			
 			//Input.define("left", Key.LEFT, Key.A);
 			//Input.define("right", Key.RIGHT, Key.D);
-			//Input.define("jump", Key.UP, Key.W);
+			Input.define("test", Key.SPACE);
 			
 			// Respond when the game loses focus.
 			addEventListener(Event.ACTIVATE, onActivate);

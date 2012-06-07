@@ -127,9 +127,9 @@ package
 				}
 				
 				// TEST
-				if (Input.check("jump")) {
-					screenEffects.shake();
-				}
+				//if (Input.pressed("test")) {
+					//screenEffects.shake();
+				//}
 				
 				super.update();
 			}
@@ -179,6 +179,11 @@ package
 				pauseScreen.visible = false;
 				emitter.active = true;
 			}
+		}
+		
+		public function shake():void
+		{
+			screenEffects.shake(0.2);
 		}
 	}
 

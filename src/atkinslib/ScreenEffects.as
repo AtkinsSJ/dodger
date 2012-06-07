@@ -3,10 +3,12 @@ package atkinslib
 	import flash.display.BitmapData;
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.tweens.misc.Alarm;
 	import net.flashpunk.tweens.misc.MultiVarTween;
 	import net.flashpunk.tweens.misc.NumTween;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Ease;
+	import atkinslib.Random;
 	
 	/**
 	 * ...
@@ -20,7 +22,10 @@ package atkinslib
 		private var fadeCallback:Function = null;
 		
 		// Shake
-		private var shakeTween:MultiVarTween = new MultiVarTween();
+		private const SHAKE_AMOUNT:Number = 3;
+		private var shakeTween:Alarm = new Alarm(0, endShake);
+		private var preShakeCameraX:Number;
+		private var preShakeCameraY:Number;
 		
 		public function ScreenEffects() 
 		{
@@ -41,7 +46,10 @@ package atkinslib
 			}
 			
 			if (shakeTween.active) {
-				trace(FP.screen.x);
+				// Wobble the screen!
+				var cameraX:Number = preShakeCameraX + Random.getInt( -SHAKE_AMOUNT, SHAKE_AMOUNT);
+				var cameraY:Number = preShakeCameraY + Random.getInt( -SHAKE_AMOUNT, SHAKE_AMOUNT);
+				FP.setCamera(cameraX, cameraY);
 			}
 		}
 		
@@ -101,30 +109,22 @@ package atkinslib
 		}
 		
 		/**
-		 * Shake the screen
-		 * TODO: Fix it!
+		 * Start shaking the screen
 		 * @param	duration
 		 */
 		public function shake(duration:Number = 0.7):void
 		{
-			if (shakeTween.active) {
-				return;
+			if (!shakeTween.active) {
+				preShakeCameraX = FP.camera.x;
+				preShakeCameraY = FP.camera.y;
 			}
-			
-			trace("Shaking!");
-			
-			shakeTween.tween(
-				{
-					x: FP.screen.x,
-					y: FP.screen.y
-				},
-				{
-					x: 0,
-					y: 0
-				},
-				duration,
-				Ease.bounceInOut
-			);
+			shakeTween.reset(duration);
+		}
+		
+		public function endShake():void
+		{
+			// Put the camera back where it was before.
+			FP.setCamera(preShakeCameraX, preShakeCameraY);
 		}
 		
 	}

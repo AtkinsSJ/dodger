@@ -85,6 +85,7 @@ package
 		{
 			// Particles!
 			(world as GameWorld).emitParticles("dust", x, y, 50);
+			(world as GameWorld).shake();
 			
 			die();
 		}
