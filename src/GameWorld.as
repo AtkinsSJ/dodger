@@ -183,7 +183,7 @@ package
 		
 		public function shake():void
 		{
-			screenEffects.shake(0.2);
+			screenEffects.shake(0.7);
 		}
 	}
 

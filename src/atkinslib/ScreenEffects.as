@@ -22,8 +22,8 @@ package atkinslib
 		private var fadeCallback:Function = null;
 		
 		// Shake
-		private const SHAKE_AMOUNT:Number = 3;
-		private var shakeTween:Alarm = new Alarm(0, endShake);
+		private const SHAKE_AMOUNT:Number = 10;
+		private var shakeTween:NumTween = new NumTween(endShake);
 		private var preShakeCameraX:Number;
 		private var preShakeCameraY:Number;
 		
@@ -47,8 +47,8 @@ package atkinslib
 			
 			if (shakeTween.active) {
 				// Wobble the screen!
-				var cameraX:Number = preShakeCameraX + Random.getInt( -SHAKE_AMOUNT, SHAKE_AMOUNT);
-				var cameraY:Number = preShakeCameraY + Random.getInt( -SHAKE_AMOUNT, SHAKE_AMOUNT);
+				var cameraX:Number = preShakeCameraX + Random.getInt( -shakeTween.value, shakeTween.value);
+				var cameraY:Number = preShakeCameraY + Random.getInt( -shakeTween.value, shakeTween.value);
 				FP.setCamera(cameraX, cameraY);
 			}
 		}
@@ -118,7 +118,7 @@ package atkinslib
 				preShakeCameraX = FP.camera.x;
 				preShakeCameraY = FP.camera.y;
 			}
-			shakeTween.reset(duration);
+			shakeTween.tween(SHAKE_AMOUNT, 0, duration, Ease.expoOut);
 		}
 		
 		public function endShake():void
