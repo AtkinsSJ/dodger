@@ -114,6 +114,7 @@ package
 					livesText.text = "Lives: " + lives;
 				}
 				
+				// Make the game more difficult
 				if ((score % spawnDelay) == 0) {
 					add(new Rock( Random.getInt(0, FP.width - 16) ));
 				}
@@ -125,11 +126,6 @@ package
 				if ((Rock.dropTime > 0.5) && ((score % 100) == 0)) {
 					Rock.dropTime -= 0.1;
 				}
-				
-				// TEST
-				//if (Input.pressed("test")) {
-					//screenEffects.shake();
-				//}
 				
 				super.update();
 			}
@@ -179,6 +175,17 @@ package
 				pauseScreen.visible = false;
 				emitter.active = true;
 			}
+		}
+		
+		override public function focusLost():void 
+		{
+			pause();
+			super.focusLost();
+		}
+		override public function focusGained():void 
+		{
+			unpause();
+			super.focusGained();
 		}
 		
 		public function shake():void

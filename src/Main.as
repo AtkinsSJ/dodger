@@ -24,10 +24,6 @@ package
 			//Input.define("left", Key.LEFT, Key.A);
 			//Input.define("right", Key.RIGHT, Key.D);
 			Input.define("test", Key.SPACE);
-			
-			// Respond when the game loses focus.
-			addEventListener(Event.ACTIVATE, onActivate);
-			addEventListener(Event.DEACTIVATE, onDeactivate);
 		}
 		
 		override public function init():void 
@@ -35,20 +31,6 @@ package
 			FP.world = new MenuWorld();
 			
 			super.init();
-		}
-		
-		public function onActivate(e:Event):void
-		{
-			if (FP.world is GameWorld) {
-				(FP.world as GameWorld).unpause();
-			}
-		}
-		
-		public function onDeactivate(e:Event):void
-		{
-			if (FP.world is GameWorld) {
-				(FP.world as GameWorld).pause();
-			}
 		}
 		
 	}
