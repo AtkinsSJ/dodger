@@ -55,7 +55,7 @@ package atkinslib.ui
 			
 			// Button has 3 states: default, hover and click.
 			var oldState:int = state;
-			if ( collidePoint(x, y, Input.mouseX, Input.mouseY) ) {
+			if ( collidePoint(x, y, world.mouseX, world.mouseY) ) {
 				
 				if ( Input.mouseDown ) {
 					state = STATE_CLICK;
