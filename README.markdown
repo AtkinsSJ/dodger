@@ -1,12 +1,12 @@
-Game 1: 'Dodger'
+Game 1: 'Meteor Strike'
 ================
 
-Dodger is the first game in my '49 Games' project, based on the first game here: http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/
+Meteor Strike is the first game in my '49 Games' project, based on the first game, 'Dodger', here: http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/
 
 49 Games
 --------
 
-'49 Games' is an attempt t complete all 49 of the games at the above link, in Flash, in order to get more experience at making games. They're probably not that exciting, but oh well.
+'49 Games' is an attempt to complete all 49 of the games at the above link, in Flash, in order to get more experience at making games. They're probably not that exciting, but oh well.
 
 License
 -------
