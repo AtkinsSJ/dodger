@@ -7,6 +7,7 @@ package
 	import net.flashpunk.graphics.ParticleType;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.Screen;
+	import net.flashpunk.tweens.misc.MultiVarTween;
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
 	import atkinslib.Random;
@@ -30,8 +31,9 @@ package
 		private var lives:int;
 		private var livesText:Text;
 		
-		private var spawnDelay:int;
-		private var rockDropTime:Number;
+		private var difficultyTween:MultiVarTween;
+		public var spawnDelay:int;
+		public var rockDropTime:Number;
 		
 		private var alive:Boolean = true;
 		
@@ -60,6 +62,16 @@ package
 			// Initial difficulty
 			rockDropTime = 3;
 			spawnDelay = 16;
+			difficultyTween = new MultiVarTween( function():void { trace("Difficulty tween complete!"); } );
+			difficultyTween.tween(
+				this,
+				{
+					rockDropTime: 0.5,
+					spawnDelay: 8
+				},
+				60
+			);
+			addTween(difficultyTween);
 			
 			// Player
 			player = new Player();
@@ -135,14 +147,14 @@ package
 		
 		private function updateDifficulty():void
 		{
-			
-			if ((spawnDelay > 1) && ((score % 200) == 0)) {
-				spawnDelay--;
-			}
-			
-			if ((rockDropTime > 0.5) && ((score % 100) == 0)) {
-				rockDropTime -= 0.1;
-			}
+			trace(rockDropTime);
+			//if ((spawnDelay > 1) && ((score % 200) == 0)) {
+				//spawnDelay--;
+			//}
+			//
+			//if ((rockDropTime > 0.5) && ((score % 100) == 0)) {
+				//rockDropTime -= 0.1;
+			//}
 		}
 		
 		public function gameOver():void

@@ -18,7 +18,6 @@ package
 	 */
 	public class Rock extends Entity 
 	{
-		//public static var dropTime:Number = 2;
 		private var motionTween:LinearMotion = new LinearMotion(die);
 		
 		private var angleTween:NumTween = new NumTween(resetRotation);
