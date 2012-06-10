@@ -31,6 +31,7 @@ package
 		private var livesText:Text;
 		
 		private var spawnDelay:int;
+		private var rockDropTime:Number;
 		
 		private var alive:Boolean = true;
 		
@@ -46,21 +47,26 @@ package
 		
 		override public function begin():void 
 		{
+			// Pause screen
 			paused = false;
 			pauseScreen = new PauseScreen();
 			add(pauseScreen);
 			
+			// Screen Effects
 			screenEffects = new ScreenEffects();
 			add(screenEffects);
 			screenEffects.fadeFromBlack();
 			
-			Rock.dropTime = 3;
+			// Initial difficulty
+			rockDropTime = 3;
 			spawnDelay = 16;
 			
+			// Player
 			player = new Player();
 			add(player);
 			alive = true;
 			
+			// Score and display
 			score = 0;
 			scoreText = new Text("Score: 0", 0, 0, {
 				size: 16,
@@ -69,6 +75,7 @@ package
 			// Add the score as an entity, and put it at the front.
 			addGraphic(scoreText).layer = -999;
 			
+			// Lives and display
 			lives = player.getLives();
 			livesText = new Text("Lives: " + lives, 0, 0, {
 				size: 16,
@@ -114,20 +121,27 @@ package
 					livesText.text = "Lives: " + lives;
 				}
 				
-				// Make the game more difficult
+				// Add a new rock if necessary
 				if ((score % spawnDelay) == 0) {
-					add(new Rock( Random.getInt(0, FP.width - 16) ));
+					add(new Rock( Random.getInt(0, FP.width - 16), rockDropTime ));
 				}
 				
-				if ((spawnDelay > 1) && ((score % 200) == 0)) {
-					spawnDelay--;
-				}
-				
-				if ((Rock.dropTime > 0.5) && ((score % 100) == 0)) {
-					Rock.dropTime -= 0.1;
-				}
+				// Make the game more difficult
+				updateDifficulty();
 				
 				super.update();
+			}
+		}
+		
+		private function updateDifficulty():void
+		{
+			
+			if ((spawnDelay > 1) && ((score % 200) == 0)) {
+				spawnDelay--;
+			}
+			
+			if ((rockDropTime > 0.5) && ((score % 100) == 0)) {
+				rockDropTime -= 0.1;
 			}
 		}
 		

@@ -18,7 +18,7 @@ package
 	 */
 	public class Rock extends Entity 
 	{
-		public static var dropTime:Number = 2;
+		//public static var dropTime:Number = 2;
 		private var motionTween:LinearMotion = new LinearMotion(die);
 		
 		private var angleTween:NumTween = new NumTween(resetRotation);
@@ -28,14 +28,14 @@ package
 		private var image:Image;
 		private var emitter:Emitter;
 		
-		public function Rock(myX:int) 
+		public function Rock(myX:int, dropTime:Number) 
 		{
 			y = -32;
 			x = myX;
 			
 			// Motion
 			addTween(motionTween);
-			motionTween.setMotion(x, y, x, FP.height, Rock.dropTime, Ease.quadIn);
+			motionTween.setMotion(x, y, x, FP.height, dropTime, Ease.quadIn);
 			
 			// Rotation
 			rotationTime = Random.getFloat(1, 3);
