@@ -102,11 +102,11 @@ package
 			emitter = new Emitter(Assets.PARTICLE_IMG, 8,8);
 			addGraphic(emitter, -900);
 			// Dust particles
-			var dustParticle:ParticleType = emitter.newType("dust", [1,2,3]);
-			dustParticle.setMotion(0, 15, 0.3, 360, 10, 0.5, Ease.quadOut)
+			var dustParticle:ParticleType = emitter.newType("dust", [4,3,2,1,0]);
+			dustParticle.setMotion(0, 15, 0.3, 360, 10, 0.3, Ease.quadOut)
 						.setAlpha(1, 1)
-						.setColor(0x613624)
-						.setGravity(1, 1);
+						.setColor(0x613624, 0x613624)
+						.setGravity(0.5, 0.5);
 			var fireParticle:ParticleType = emitter.newType("fire", [4,3,2]);
 			fireParticle.setMotion(70, 3, 1.0, 40, 3, 0, Ease.cubeOut)
 						.setAlpha(1, 0, Ease.cubeIn)
