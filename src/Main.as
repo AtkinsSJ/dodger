@@ -15,7 +15,7 @@ package
 		
 		public function Main():void 
 		{
-			super(320, 240);
+			super(320, 240, 30);
 			FP.screen.scale = 2;
 			
 			FP.console.enable();
