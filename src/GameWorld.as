@@ -107,8 +107,8 @@ package
 						.setAlpha(1, 1)
 						.setColor(0x613624)
 						.setGravity(1, 1);
-			var fireParticle:ParticleType = emitter.newType("fire", [1,2,3,4]);
-			fireParticle.setMotion(0, 5, 0.7, 360, 5, 0.3, Ease.cubeOut)
+			var fireParticle:ParticleType = emitter.newType("fire", [4,3,2]);
+			fireParticle.setMotion(70, 3, 1.0, 40, 3, 0, Ease.cubeOut)
 						.setAlpha(1, 0, Ease.cubeIn)
 						.setColor(0xff9900, 0x000000, Ease.quadOut);
 			//emitter.active = false;
