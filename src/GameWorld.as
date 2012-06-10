@@ -103,14 +103,15 @@ package
 			addGraphic(emitter, -900);
 			// Dust particles
 			var dustParticle:ParticleType = emitter.newType("dust", [1,2,3]);
-			dustParticle.setMotion(0, 15, 0.5, 360, 10, 0.5, Ease.quadOut)
-						.setAlpha(1, 0, Ease.quadIn)
+			dustParticle.setMotion(0, 15, 0.3, 360, 10, 0.5, Ease.quadOut)
+						.setAlpha(1, 1)
 						.setColor(0x613624)
 						.setGravity(1, 1);
 			var fireParticle:ParticleType = emitter.newType("fire", [1,2,3,4]);
-			fireParticle.setMotion(0, 5, 1, 360, 5, 0.5, Ease.cubeOut)
+			fireParticle.setMotion(0, 5, 0.7, 360, 5, 0.3, Ease.cubeOut)
 						.setAlpha(1, 0, Ease.cubeIn)
 						.setColor(0xff9900, 0x000000, Ease.quadOut);
+			//emitter.active = false;
 			
 			// Background image
 			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
@@ -138,23 +139,8 @@ package
 					add(new Rock( Random.getInt(0, FP.width - 16), rockDropTime ));
 				}
 				
-				// Make the game more difficult
-				updateDifficulty();
-				
 				super.update();
 			}
-		}
-		
-		private function updateDifficulty():void
-		{
-			trace(rockDropTime);
-			//if ((spawnDelay > 1) && ((score % 200) == 0)) {
-				//spawnDelay--;
-			//}
-			//
-			//if ((rockDropTime > 0.5) && ((score % 100) == 0)) {
-				//rockDropTime -= 0.1;
-			//}
 		}
 		
 		public function gameOver():void
@@ -174,9 +160,13 @@ package
 		 */
 		public function emitParticles(type:String, x:int, y:int, count:uint):void
 		{
-			for (var i:uint = 0; i < count; i++) {
-				emitter.emit(type, x+4, y+4);
+			if (emitter.active) {
+				for (var i:uint = 0; i < count; i++) {
+					emitter.emit(type, x+4, y+4);
+				}
 			}
+			
+			trace(emitter.particleCount);
 		}
 		
 		/**

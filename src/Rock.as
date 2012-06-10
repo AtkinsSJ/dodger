@@ -25,7 +25,6 @@ package
 		private var rotateClockwise:Boolean;
 		
 		private var image:Image;
-		private var emitter:Emitter;
 		
 		public function Rock(myX:int, dropTime:Number) 
 		{
@@ -72,7 +71,7 @@ package
 			}
 			
 			// Fire!
-			(world as GameWorld).emitParticles("fire", x, y, 4);
+			(world as GameWorld).emitParticles("fire", x, y, 3);
 			
 			super.update();
 		}
@@ -83,7 +82,7 @@ package
 		public function explode():void
 		{
 			// Particles!
-			(world as GameWorld).emitParticles("dust", x, y, 50);
+			(world as GameWorld).emitParticles("dust", x, y, 30);
 			(world as GameWorld).shake();
 			
 			die();
