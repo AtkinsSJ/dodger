@@ -166,7 +166,7 @@ package
 				}
 			}
 			
-			trace(emitter.particleCount);
+			//trace(emitter.particleCount);
 		}
 		
 		/**
