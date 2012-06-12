@@ -26,6 +26,8 @@ package
 		
 		private var image:Image;
 		
+		private var shadow:Entity;
+		
 		public function Rock(startX:int, endX:int, dropTime:Number) 
 		{
 			y = -32;
@@ -54,6 +56,13 @@ package
 			type = "rock";
 		}
 		
+		override public function added():void 
+		{
+			// Shadow
+			shadow = (world as GameWorld).addShadow();
+			shadow.x = x;
+		}
+		
 		override public function update():void 
 		{
 			x = motionTween.x;
@@ -72,6 +81,9 @@ package
 			
 			// Fire!
 			(world as GameWorld).emitParticles("fire", x, y, 3);
+			
+			// Shadow
+			shadow.x = x;
 			
 			super.update();
 		}
@@ -94,6 +106,7 @@ package
 		public function die():void
 		{
 			//trace("Enemy died");
+			(world as GameWorld).removeShadow(shadow);
 			world.remove(this);
 		}
 		

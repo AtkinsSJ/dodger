@@ -2,6 +2,8 @@ package
 {
 	import atkinslib.PauseScreen;
 	import atkinslib.ScreenEffects;
+	import flash.utils.Endian;
+	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Emitter;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.ParticleType;
@@ -207,6 +209,22 @@ package
 		public function shake():void
 		{
 			screenEffects.shake(0.7);
+		}
+		
+		public function addShadow():Entity
+		{
+			var shadow:Entity = addGraphic(new Image(Assets.SHADOW_IMG), 1000, 0, 216);
+			
+			//(shadow.graphic as Image).centerOrigin();
+			//shadow.setHitbox(16, 8);
+			//shadow.centerOrigin();
+			
+			return shadow;
+		}
+		
+		public function removeShadow(shadow:Entity):void
+		{
+			remove(shadow);
 		}
 	}
 
