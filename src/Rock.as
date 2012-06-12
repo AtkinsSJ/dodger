@@ -61,6 +61,7 @@ package
 			// Shadow
 			shadow = (world as GameWorld).addShadow();
 			shadow.x = x;
+			updateShadow();
 		}
 		
 		override public function update():void 
@@ -83,9 +84,20 @@ package
 			(world as GameWorld).emitParticles("fire", x, y, 3);
 			
 			// Shadow
-			shadow.x = x;
+			updateShadow();
 			
 			super.update();
+		}
+		
+		private function updateShadow():void
+		{
+			shadow.x = centerX;
+			
+			var distance:Number = FP.distance(centerX, centerY, shadow.x, shadow.y);
+			var scale:Number = 1 - (distance / FP.height);
+			if (scale < 0) { scale = 0; }
+			(shadow.graphic as Image).scale = scale;
+			(shadow.graphic as Image).alpha = scale;
 		}
 		
 		/**

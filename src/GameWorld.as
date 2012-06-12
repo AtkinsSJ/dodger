@@ -215,9 +215,9 @@ package
 		{
 			var shadow:Entity = addGraphic(new Image(Assets.SHADOW_IMG), 1000, 0, 216);
 			
-			//(shadow.graphic as Image).centerOrigin();
-			//shadow.setHitbox(16, 8);
-			//shadow.centerOrigin();
+			(shadow.graphic as Image).centerOrigin();
+			shadow.setHitbox(16, 8);
+			shadow.centerOrigin();
 			
 			return shadow;
 		}
