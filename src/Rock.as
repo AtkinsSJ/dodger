@@ -26,14 +26,14 @@ package
 		
 		private var image:Image;
 		
-		public function Rock(myX:int, dropTime:Number) 
+		public function Rock(startX:int, endX:int, dropTime:Number) 
 		{
 			y = -32;
-			x = myX;
+			x = startX;
 			
 			// Motion
 			addTween(motionTween);
-			motionTween.setMotion(x, y, x, FP.height, dropTime, Ease.quadIn);
+			motionTween.setMotion(x, y, endX, FP.height, dropTime, Ease.quadIn);
 			
 			// Rotation
 			rotationTime = Random.getFloat(1, 3);
