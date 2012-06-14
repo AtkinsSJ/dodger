@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'12/06/2012'</value>
+      <value>'14/06/2012'</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
@@ -25,7 +25,7 @@
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Sam\Documents\49 Games\1 Dodger\src\Main.as</path-element>
+    <path-element>C:\Users\Sam\Documents\49 Games\1 Dodger\src\Preloader.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
