@@ -2,12 +2,14 @@ package
 {
 	import atkinslib.ScreenEffects;
 	import atkinslib.ui.Button;
+	import flash.net.URLRequest;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import net.flashpunk.World;
 	import flash.events.Event;
+	import flash.net.navigateToURL;
 	
 	/**
 	 * ...
@@ -18,6 +20,9 @@ package
 		private var screenEffects:ScreenEffects;
 		
 		private static var fadeIn:Boolean = false;
+		
+		private const WEBSITE_URL:String = "http://samatkins.co.uk";
+		private const GITHUB_URL:String = "https://github.com/AtkinsSJ/dodger";
 		
 		public function MenuWorld() 
 		{
@@ -53,7 +58,7 @@ package
 				}
 			));
 			
-			addGraphic( new Text("Move using the mouse, and try to survive\nthe meteor strike for as long as possible!", 0, 120, 
+			addGraphic( new Text("Move using the mouse, and try to survive\nthe meteor strike for as long as possible!", 0, 100, 
 				{
 					align: "center",
 					size: 8,
@@ -63,7 +68,10 @@ package
 				}
 			));
 			
-			add(new Button(120, 160, 80, "Start Game", startGame));
+			add(new Button(120, 140, 80, "Start Game", startGame));
+			
+			add(new Button(120, 170, 80, "Visit Website", openWebsite));
+			add(new Button(120, 200, 80, "Github Repo", openGithub));
 			
 			super.begin();
 		}
@@ -82,6 +90,16 @@ package
 			screenEffects.fadeToBlack(0.7, function():void {
 				FP.world = new GameWorld();
 			});
+		}
+		
+		private function openWebsite():void
+		{
+			navigateToURL( new URLRequest(WEBSITE_URL), "_blank" );
+		}
+		
+		private function openGithub():void
+		{
+			navigateToURL( new URLRequest(GITHUB_URL), "_blank" );
 		}
 	}
 
