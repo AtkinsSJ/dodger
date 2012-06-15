@@ -29,7 +29,7 @@ package atkinslib
 		private var preShakeCameraY:Number;
 		
 		// Flash
-		private var flashTween:NumTween = new NumTween();
+		private var flashTween:NumTween = new NumTween(endFlash);
 		private var flashBox:Image;
 		
 		public function ScreenEffects() 
@@ -163,6 +163,14 @@ package atkinslib
 			flashBox.visible = true;
 			
 			flashTween.tween(0, maxAlpha, duration, Easing.linearBoomerang);//function(t:Number):Number { return (t <= 0.5 ? (t * 2) : ((1-t) * 2) ); } );
+		}
+		
+		/**
+		 * Called when the flash tween ends.
+		 */
+		public function endFlash():void
+		{
+			flashBox.visible = false;
 		}
 		
 	}
