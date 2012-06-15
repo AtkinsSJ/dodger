@@ -2,6 +2,7 @@ package atkinslib
 {
 	import flash.display.BitmapData;
 	import net.flashpunk.Entity;
+	import net.flashpunk.graphics.Graphiclist;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.tweens.misc.Alarm;
 	import net.flashpunk.tweens.misc.MultiVarTween;
@@ -27,12 +28,22 @@ package atkinslib
 		private var preShakeCameraX:Number;
 		private var preShakeCameraY:Number;
 		
+		// Flash
+		private var flashTween:NumTween = new NumTween();
+		private var flashBox:Image;
+		
 		public function ScreenEffects() 
 		{
-			graphic = blackBox = new Image(new BitmapData(FP.width, FP.height, true, 0xff000000));
+			blackBox = Image.createRect(FP.width, FP.height, 0x000000);
 			blackBox.visible = false;
 			
+			flashBox = Image.createRect(FP.width, FP.height);
+			flashBox.visible = false;
+			
+			graphic = new Graphiclist(blackBox, flashBox);
+			
 			addTween(shakeTween);
+			addTween(flashTween);
 			
 			layer = -1000;
 		}
@@ -50,6 +61,10 @@ package atkinslib
 				var cameraX:Number = preShakeCameraX + Random.getInt( -shakeTween.value, shakeTween.value);
 				var cameraY:Number = preShakeCameraY + Random.getInt( -shakeTween.value, shakeTween.value);
 				FP.setCamera(cameraX, cameraY);
+			}
+			
+			if (flashTween.active) {
+				flashBox.alpha = flashTween.value;
 			}
 		}
 		
@@ -72,6 +87,9 @@ package atkinslib
 			fadeTween.tween(1, 0, duration);
 		}
 		
+		/**
+		 * Called when fading from black is completed.
+		 */
 		public function fadeFromBlackFinished():void
 		{
 			if (fadeCallback != null) {
@@ -100,6 +118,9 @@ package atkinslib
 			fadeTween.tween(0, 1, duration);
 		}
 		
+		/**
+		 * Called when fading to black is completed.
+		 */
 		public function fadeToBlackFinished():void
 		{
 			if (fadeCallback != null) {
@@ -121,10 +142,27 @@ package atkinslib
 			shakeTween.tween(SHAKE_AMOUNT, 0, duration, Ease.expoOut);
 		}
 		
+		/**
+		 * Called when the shake tween ends.
+		 */
 		public function endShake():void
 		{
 			// Put the camera back where it was before.
 			FP.setCamera(preShakeCameraX, preShakeCameraY);
+		}
+		
+		/**
+		 * Fades the given colour over the screen and back out again, for the given duration.
+		 * @param	colour
+		 * @param	duration
+		 */
+		public function flash(colour:uint, duration:Number = 0.3):void
+		{
+			flashBox.alpha = 0;
+			flashBox.color = colour;
+			flashBox.visible = true;
+			
+			flashTween.tween(0, 1, duration, function(t:Number):Number { return (t <= 0.5 ? (t * 2) : ((1-t) * 2) ); } );
 		}
 		
 	}

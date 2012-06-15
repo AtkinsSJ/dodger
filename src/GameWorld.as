@@ -141,6 +141,11 @@ package
 					add(new Rock( Random.getInt(0, FP.width - 16), Random.getInt(0, FP.width - 16), rockDropTime ));
 				}
 				
+				// TEST
+				if (Input.pressed("test")) {
+					screenEffects.flash(0xff0000);
+				}
+				
 				super.update();
 			}
 		}
