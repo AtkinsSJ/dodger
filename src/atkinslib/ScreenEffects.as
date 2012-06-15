@@ -162,7 +162,7 @@ package atkinslib
 			flashBox.color = colour;
 			flashBox.visible = true;
 			
-			flashTween.tween(0, 1, duration, function(t:Number):Number { return (t <= 0.5 ? (t * 2) : ((1-t) * 2) ); } );
+			flashTween.tween(0, 1, duration, Easing.linearBoomerang);//function(t:Number):Number { return (t <= 0.5 ? (t * 2) : ((1-t) * 2) ); } );
 		}
 		
 	}
