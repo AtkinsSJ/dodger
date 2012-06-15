@@ -62,6 +62,10 @@ package atkinslib.ui
 				} else {
 					state = STATE_HOVER;
 				}
+			
+				if (Input.mouseReleased) {
+					click();
+				}
 				
 			} else {
 				state = STATE_DEFAULT;
@@ -70,10 +74,6 @@ package atkinslib.ui
 			// Update the image if the state changed
 			if (state != oldState) {
 				stateChanged();
-			}
-			
-			if (Input.mouseReleased) {
-				click();
 			}
 		}
 		
