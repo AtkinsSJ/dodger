@@ -141,11 +141,6 @@ package
 					add(new Rock( Random.getInt(0, FP.width - 16), Random.getInt(0, FP.width - 16), rockDropTime ));
 				}
 				
-				// TEST
-				if (Input.pressed("test")) {
-					screenEffects.flash(0xff0000);
-				}
-				
 				super.update();
 			}
 		}
@@ -214,6 +209,11 @@ package
 		public function shake():void
 		{
 			screenEffects.shake(0.7);
+		}
+		
+		public function playerHurt():void
+		{
+			screenEffects.flash(0xff0000, 0.3);
 		}
 		
 		public function addShadow():Entity

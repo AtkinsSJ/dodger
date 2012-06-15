@@ -52,6 +52,8 @@ package
 			collidable = false;
 			invincible = true;
 			
+			(world as GameWorld).playerHurt();
+			
 			if (lives > 0) {
 				lives--;
 			}
