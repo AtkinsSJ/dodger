@@ -213,7 +213,7 @@ package
 		
 		public function playerHurt():void
 		{
-			screenEffects.flash(0xff0000, 0.3);
+			screenEffects.flash(0xff0000, 0.3, 0.5);
 		}
 		
 		public function addShadow():Entity

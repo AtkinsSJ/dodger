@@ -156,13 +156,13 @@ package atkinslib
 		 * @param	colour
 		 * @param	duration
 		 */
-		public function flash(colour:uint, duration:Number = 0.3):void
+		public function flash(colour:uint, duration:Number = 0.3, maxAlpha:Number = 1):void
 		{
 			flashBox.alpha = 0;
 			flashBox.color = colour;
 			flashBox.visible = true;
 			
-			flashTween.tween(0, 1, duration, Easing.linearBoomerang);//function(t:Number):Number { return (t <= 0.5 ? (t * 2) : ((1-t) * 2) ); } );
+			flashTween.tween(0, maxAlpha, duration, Easing.linearBoomerang);//function(t:Number):Number { return (t <= 0.5 ? (t * 2) : ((1-t) * 2) ); } );
 		}
 		
 	}
