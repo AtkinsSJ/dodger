@@ -68,6 +68,13 @@ package
 				}
 			));
 			
+			addGraphic( new Text("Build: " + Version.Build, 12, 220,
+				{
+					size: 8,
+					color: 0x666666
+				}
+			));
+			
 			add(new Button(120, 140, 80, "Start Game", startGame));
 			
 			add(new Button(120, 170, 80, "Visit Website", openWebsite));
