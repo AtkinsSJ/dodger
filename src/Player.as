@@ -2,9 +2,9 @@ package
 {
 	import flash.display.BitmapData;
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.Input;
-	import net.flashpunk.FP;
 	
 	/**
 	 * ...

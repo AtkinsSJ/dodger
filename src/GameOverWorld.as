@@ -2,12 +2,10 @@ package
 {
 	import atkinslib.ScreenEffects;
 	import atkinslib.ui.Button;
-	import net.flashpunk.World;
 	import net.flashpunk.FP;
-	import net.flashpunk.graphics.Text;
-	import net.flashpunk.utils.Input;
-	import net.flashpunk.utils.Key;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.graphics.Text;
+	import net.flashpunk.World;
 	
 	/**
 	 * ...

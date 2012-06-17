@@ -1,21 +1,17 @@
 package  
 {
 	import atkinslib.PauseScreen;
+	import atkinslib.Random;
 	import atkinslib.ScreenEffects;
-	import flash.utils.Endian;
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Emitter;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.ParticleType;
 	import net.flashpunk.graphics.Text;
-	import net.flashpunk.Screen;
 	import net.flashpunk.tweens.misc.MultiVarTween;
-	import net.flashpunk.World;
-	import net.flashpunk.FP;
-	import atkinslib.Random;
-	import net.flashpunk.utils.Input;
-	import flash.display.BitmapData;
 	import net.flashpunk.utils.Ease;
+	import net.flashpunk.World;
 	
 	/**
 	 * ...

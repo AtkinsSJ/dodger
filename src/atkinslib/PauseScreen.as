@@ -1,12 +1,10 @@
 package atkinslib 
 {
 	import net.flashpunk.Entity;
-	import net.flashpunk.Graphic;
+	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Graphiclist;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Text;
-	import net.flashpunk.Mask;
-	import net.flashpunk.FP;
 	
 	/**
 	 * ...

@@ -2,15 +2,12 @@ package
 {
 	import atkinslib.ScreenEffects;
 	import atkinslib.ui.Button;
+	import flash.net.navigateToURL;
 	import flash.net.URLRequest;
 	import net.flashpunk.FP;
-	import net.flashpunk.graphics.Text;
-	import net.flashpunk.utils.Input;
-	import net.flashpunk.utils.Key;
-	import net.flashpunk.World;
-	import flash.events.Event;
-	import flash.net.navigateToURL;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.graphics.Text;
+	import net.flashpunk.World;
 	
 	/**
 	 * ...

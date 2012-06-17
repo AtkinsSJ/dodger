@@ -1,16 +1,12 @@
 package  
 {
+	import atkinslib.Random;
 	import net.flashpunk.Entity;
-	import net.flashpunk.graphics.Emitter;
-	import net.flashpunk.graphics.Graphiclist;
+	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
-	import flash.display.BitmapData;
-	import net.flashpunk.graphics.ParticleType;
 	import net.flashpunk.tweens.misc.NumTween;
 	import net.flashpunk.tweens.motion.LinearMotion;
-	import net.flashpunk.FP;
 	import net.flashpunk.utils.Ease;
-	import atkinslib.Random;
 	
 	/**
 	 * ...

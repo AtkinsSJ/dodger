@@ -1,8 +1,8 @@
 package  
 {
+	import atkinslib.Random;
 	import flash.geom.Rectangle;
 	import net.flashpunk.graphics.Image;
-	import atkinslib.Random;
 	/**
 	 * ...
 	 * @author Samuel Atkins
