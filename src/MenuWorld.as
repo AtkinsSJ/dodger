@@ -77,9 +77,10 @@ package
 			));
 			
 			add(new Button(120, 140, 80, "Start Game", startGame));
+			add(new Button(120, 178, 80, "Credits", goToCredits));
 			
-			add(new Button(120, 170, 80, "Visit Website", openWebsite));
-			add(new Button(120, 200, 80, "Github Repo", openGithub));
+			add(new Button(120, 216, 80, "Visit Website", openWebsite));
+			add(new Button(236, 216, 80, "Github Repo", openGithub));
 			
 			super.begin();
 		}
@@ -108,6 +109,13 @@ package
 		private function openGithub():void
 		{
 			navigateToURL( new URLRequest(GITHUB_URL), "_blank" );
+		}
+		
+		private function goToCredits():void
+		{
+			screenEffects.fadeToBlack(0.7, function():void {
+				FP.world = new CreditsWorld();
+			});
 		}
 	}
 
