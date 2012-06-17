@@ -10,6 +10,7 @@ package
 	import net.flashpunk.World;
 	import flash.events.Event;
 	import flash.net.navigateToURL;
+	import net.flashpunk.graphics.Image;
 	
 	/**
 	 * ...
@@ -39,6 +40,9 @@ package
 				screenEffects.fadeFromBlack();
 			}
 			fadeIn = true;
+			
+			// Background image
+			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
 			
 			addGraphic( new Text("49 Games", 0, 20, 
 				{

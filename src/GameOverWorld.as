@@ -7,6 +7,7 @@ package
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
+	import net.flashpunk.graphics.Image;
 	
 	/**
 	 * ...
@@ -27,6 +28,9 @@ package
 			screenEffects = new ScreenEffects();
 			add(screenEffects);
 			screenEffects.fadeFromBlack();
+			
+			// Background image
+			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
 			
 			addGraphic( new Text("GAME OVER!", 0, 50, 
 				{
