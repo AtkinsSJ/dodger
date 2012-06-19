@@ -29,9 +29,14 @@ package
 			y = -32;
 			x = startX;
 			
+			// Make diaonal meteors move the same speed
+			var distanceRatio:Number = FP.distance(startX, 0, endX, FP.height) / FP.height;
+			var normalisedDropTime:Number = dropTime * distanceRatio;
+			trace( dropTime, normalisedDropTime);
+			
 			// Motion
 			addTween(motionTween);
-			motionTween.setMotion(x, y, endX, FP.height, dropTime, Ease.quadIn);
+			motionTween.setMotion(x, y, endX, FP.height, normalisedDropTime, Ease.quadIn);
 			
 			// Rotation
 			rotationTime = Random.getFloat(1, 3);
