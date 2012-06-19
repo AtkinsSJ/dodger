@@ -1,5 +1,6 @@
 package  
 {
+	import atkinslib.Highscore;
 	import atkinslib.ScreenEffects;
 	import atkinslib.ui.Button;
 	import flash.net.navigateToURL;
@@ -59,7 +60,16 @@ package
 				}
 			));
 			
-			addGraphic( new Text("Move using the mouse, and try to survive\nthe meteor strike for as long as possible!", 0, 100, 
+			addGraphic( new Text( "High score: " + Highscore.getScore(), 0, 110,
+				{
+					align: "center",
+					size: 16,
+					color: 0x00ff00,
+					width: FP.width
+				}
+			));
+			
+			addGraphic( new Text("Move using the mouse, and try to survive\nthe meteor strike for as long as possible!", 0, 80, 
 				{
 					align: "center",
 					size: 8,

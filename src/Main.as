@@ -1,5 +1,6 @@
 package 
 {
+	import atkinslib.Highscore;
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -28,6 +29,7 @@ package
 		override public function init():void 
 		{
 			FP.world = new MenuWorld();
+			Highscore.init("49games_1");
 			
 			super.init();
 		}
