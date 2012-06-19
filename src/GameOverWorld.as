@@ -1,5 +1,6 @@
 package  
 {
+	import atkinslib.Highscore;
 	import atkinslib.ScreenEffects;
 	import atkinslib.ui.Button;
 	import net.flashpunk.FP;
@@ -30,16 +31,16 @@ package
 			// Background image
 			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
 			
-			addGraphic( new Text("GAME OVER!", 0, 50, 
+			addGraphic( new Text("GAME OVER!", 0, 40, 
 				{
 					align: "center",
 					size: 24,
-					color: 0xffff00,
+					color: 0xff0000,
 					width: FP.width
 				}
 			));
 			
-			addGraphic( new Text("Score: " + score, 0, 100, 
+			addGraphic( new Text("Score: " + score, 0, 75, 
 				{
 					align: "center",
 					size: 32,
@@ -48,17 +49,34 @@ package
 				}
 			));
 			
+			addGraphic( new Text("Previous best: " + Highscore.getScore(), 0, 120, 
+				{
+					align: "center",
+					size: 16,
+					color: 0x00ff00,
+					width: FP.width
+				}
+			));
+			
 			add(new Button(120, 216, 80, "Main Menu", goToMenu));
+			
+			if (Highscore.setScore(score)) {
+				// New high score!
+				addGraphic( new Text("New high score!", 0, 150, 
+					{
+						align: "center",
+						size: 32,
+						color: 0xffff00,
+						width: FP.width
+					}
+				));
+			}
 			
 			super.begin();
 		}
 		
 		override public function update():void 
 		{
-			//if (Input.pressed(Key.SPACE)) {
-				//goToMenu();
-			//}
-			
 			super.update();
 		}
 		
