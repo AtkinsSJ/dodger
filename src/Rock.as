@@ -32,7 +32,6 @@ package
 			// Make diaonal meteors move the same speed
 			var distanceRatio:Number = FP.distance(startX, 0, endX, FP.height) / FP.height;
 			var normalisedDropTime:Number = dropTime * distanceRatio;
-			trace( dropTime, normalisedDropTime);
 			
 			// Motion
 			addTween(motionTween);

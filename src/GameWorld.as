@@ -58,7 +58,7 @@ package
 			screenEffects.fadeFromBlack();
 			
 			// Initial difficulty
-			rockDropTime = 3;
+			rockDropTime = 2.5;
 			spawnDelay = 16;
 			difficultyTween = new MultiVarTween( function():void { trace("Difficulty tween complete!"); } );
 			difficultyTween.tween(
@@ -136,6 +136,8 @@ package
 				if ((score % spawnDelay) == 0) {
 					add(new Rock( Random.getInt(0, FP.width - 16), Random.getInt(0, FP.width - 16), rockDropTime ));
 				}
+				
+				//trace(rockDropTime, spawnDelay);
 				
 				super.update();
 			}
