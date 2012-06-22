@@ -1,23 +1,19 @@
 package  
 {
+	import atkinslib.AtkinsWorld;
 	import atkinslib.Highscore;
-	import atkinslib.ScreenEffects;
 	import atkinslib.ui.Button;
 	import flash.net.navigateToURL;
 	import flash.net.URLRequest;
 	import net.flashpunk.FP;
-	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Text;
-	import net.flashpunk.World;
 	
 	/**
 	 * ...
 	 * @author Samuel Atkins
 	 */
-	public class MenuWorld extends World 
+	public class MenuWorld extends AtkinsWorld 
 	{
-		private var screenEffects:ScreenEffects;
-		
 		private static var fadeIn:Boolean = false;
 		
 		private const WEBSITE_URL:String = "http://samatkins.co.uk";
@@ -25,22 +21,18 @@ package
 		
 		public function MenuWorld() 
 		{
-			
+			super(false, Assets.BACKGROUND_IMG);
 		}
 		
 		override public function begin():void 
 		{
-			screenEffects = new ScreenEffects();
-			add(screenEffects);
+			super.begin();
 			
 			// Don't fade in the first time.
 			if (fadeIn) {
 				screenEffects.fadeFromBlack();
 			}
 			fadeIn = true;
-			
-			// Background image
-			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
 			
 			addGraphic( new Text("49 Games", 0, 20, 
 				{
@@ -91,17 +83,6 @@ package
 			
 			add(new Button(120, 216, 80, "Visit Website", openWebsite));
 			add(new Button(236, 216, 80, "Github Repo", openGithub));
-			
-			super.begin();
-		}
-		
-		override public function update():void 
-		{
-			//if (Input.pressed(Key.SPACE)) {
-				//startGame();
-			//}
-			
-			super.update();
 		}
 		
 		private function startGame():void
