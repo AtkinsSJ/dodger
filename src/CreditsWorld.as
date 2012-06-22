@@ -1,37 +1,30 @@
 package  
 {
-	import atkinslib.ScreenEffects;
+	import atkinslib.AtkinsWorld;
 	import atkinslib.ui.Button;
 	import flash.utils.ByteArray;
 	import net.flashpunk.FP;
-	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Text;
-	import net.flashpunk.World;
 	
 	/**
 	 * ...
 	 * @author Samuel Atkins
 	 */
-	public class CreditsWorld extends World 
+	public class CreditsWorld extends AtkinsWorld 
 	{
-		private var screenEffects:ScreenEffects;
-		
 		[Embed(source = "../assets/credits.txt",mimeType="application/octet-stream")]
 		private const CREDITS_FILE:Class;
 		
 		public function CreditsWorld() 
 		{
-			
+			super(false, Assets.BACKGROUND_IMG);
 		}
 		
 		override public function begin():void 
 		{
-			screenEffects = new ScreenEffects();
-			add(screenEffects);
-			screenEffects.fadeFromBlack();
+			super.begin();
 			
-			// Background image
-			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
+			screenEffects.fadeFromBlack();
 			
 			// Text
 			var creditsText:ByteArray = new CREDITS_FILE();
@@ -48,7 +41,6 @@ package
 			// Menu button
 			add(new Button(120, 216, 80, "Main Menu", goToMenu));
 			
-			super.begin();
 		}
 		
 		public function goToMenu():void
