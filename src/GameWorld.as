@@ -1,5 +1,6 @@
 package  
 {
+	import atkinslib.AtkinsWorld;
 	import atkinslib.PauseScreen;
 	import atkinslib.Random;
 	import atkinslib.ScreenEffects;
@@ -17,9 +18,9 @@ package
 	 * ...
 	 * @author Samuel Atkins
 	 */
-	public class GameWorld extends World 
+	public class GameWorld extends AtkinsWorld
 	{
-		private var screenEffects:ScreenEffects;
+		//private var screenEffects:ScreenEffects;
 		
 		private var player:Player;
 		
@@ -37,12 +38,12 @@ package
 		
 		public var emitter:Emitter;
 		
-		private var paused:Boolean;
-		private var pauseScreen:PauseScreen;
+		//private var paused:Boolean;
+		//private var pauseScreen:PauseScreen;
 		
 		public function GameWorld() 
 		{
-			
+			super(true, Assets.BACKGROUND_IMG);
 		}
 		
 		override public function begin():void 
@@ -50,13 +51,13 @@ package
 			super.begin();
 			
 			// Pause screen
-			paused = false;
-			pauseScreen = new PauseScreen();
-			add(pauseScreen);
+			//paused = false;
+			//pauseScreen = new PauseScreen();
+			//add(pauseScreen);
 			
 			// Screen Effects
-			screenEffects = new ScreenEffects();
-			add(screenEffects);
+			//screenEffects = new ScreenEffects();
+			//add(screenEffects);
 			screenEffects.fadeFromBlack();
 			
 			// Initial difficulty
@@ -100,7 +101,7 @@ package
 			
 			// Particle emitter!
 			emitter = new Emitter(Assets.PARTICLE_IMG, 8,8);
-			addGraphic(emitter, -900);
+			addGraphic(emitter, PARTICLE_LAYER);
 			// Dust particles
 			var dustParticle:ParticleType = emitter.newType("dust", [4,3,2,1,0]);
 			dustParticle.setMotion(0, 15, 0.3, 360, 10, 0.3, Ease.quadOut)
@@ -114,7 +115,7 @@ package
 			//emitter.active = false;
 			
 			// Background image
-			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
+			//addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
 			
 		}
 		
@@ -170,41 +171,6 @@ package
 			//trace(emitter.particleCount);
 		}
 		
-		/**
-		 * Pause the game!
-		 */
-		public function pause():void
-		{
-			if (!paused) {
-				pauseScreen.visible = true;
-				paused = true;
-				emitter.active = false;
-			}
-		}
-		
-		/**
-		 * Unpause the game.
-		 */
-		public function unpause():void
-		{
-			if (paused) {
-				paused = false;
-				pauseScreen.visible = false;
-				emitter.active = true;
-			}
-		}
-		
-		override public function focusLost():void 
-		{
-			pause();
-			super.focusLost();
-		}
-		override public function focusGained():void 
-		{
-			unpause();
-			super.focusGained();
-		}
-		
 		public function shake():void
 		{
 			screenEffects.shake(0.7);
@@ -229,6 +195,18 @@ package
 		public function removeShadow(shadow:Entity):void
 		{
 			remove(shadow);
+		}
+		
+		override public function pause():void 
+		{
+			super.pause();
+			emitter.active = false;
+		}
+		
+		override public function unpause():void 
+		{
+			super.unpause();
+			emitter.active = true;
 		}
 	}
 
