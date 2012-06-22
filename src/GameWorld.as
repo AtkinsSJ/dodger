@@ -114,7 +114,7 @@ package
 				
 				// Add a new rock if necessary
 				if ((score % spawnDelay) == 0) {
-					add(new Rock( Random.getInt(0, FP.width - 16), Random.getInt(0, FP.width - 16), rockDropTime ));
+					(create(Rock, true) as Rock).init( Random.getInt(0, FP.width - 16), Random.getInt(0, FP.width - 16), rockDropTime );
 				}
 				
 				//trace(rockDropTime, spawnDelay);

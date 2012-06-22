@@ -24,25 +24,13 @@ package
 		
 		private var shadow:Entity;
 		
-		public function Rock(startX:int, endX:int, dropTime:Number) 
+		public function Rock() 
 		{
-			y = -32;
-			x = startX;
-			
-			// Make diaonal meteors move the same speed
-			var distanceRatio:Number = FP.distance(startX, 0, endX, FP.height) / FP.height;
-			var normalisedDropTime:Number = dropTime * distanceRatio;
-			
 			// Motion
 			addTween(motionTween);
-			motionTween.setMotion(x, y, endX, FP.height, normalisedDropTime, Ease.quadIn);
 			
 			// Rotation
-			rotationTime = Random.getFloat(1, 3);
 			addTween(angleTween);
-			var startAngle:Number = Random.getAngle();
-			angleTween.tween( startAngle, 360, (rotationTime * (startAngle / 360)) );
-			rotateClockwise = Random.getBoolean();
 			
 			// Rock image
 			image = Assets.getRock();
@@ -54,6 +42,25 @@ package
 			
 			setHitbox(16, 16, 0, 0);
 			type = "rock";
+		}
+		
+		public function init(startX:int, endX:int, dropTime:Number):void
+		{
+			y = -32;
+			x = startX;
+			
+			// Make diagonal meteors move the same speed
+			var distanceRatio:Number = FP.distance(startX, 0, endX, FP.height) / FP.height;
+			var normalisedDropTime:Number = dropTime * distanceRatio;
+			
+			// Set motion
+			motionTween.setMotion(x, y, endX, FP.height, normalisedDropTime, Ease.quadIn);
+			
+			// Rotation
+			rotationTime = Random.getFloat(1, 3);
+			var startAngle:Number = Random.getAngle();
+			angleTween.tween( startAngle, 360, (rotationTime * (startAngle / 360)) );
+			rotateClockwise = Random.getBoolean();
 		}
 		
 		override public function added():void 
@@ -119,7 +126,7 @@ package
 		{
 			//trace("Enemy died");
 			(world as GameWorld).removeShadow(shadow);
-			world.remove(this);
+			world.recycle(this);
 		}
 		
 		public function resetRotation():void
