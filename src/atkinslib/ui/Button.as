@@ -9,7 +9,7 @@ package atkinslib.ui
 	 * ...
 	 * @author Samuel Atkins
 	 */
-	public class Button extends Entity 
+	public class Button extends UIElement 
 	{
 		private static const STATE_DEFAULT:int = 0;
 		private static const STATE_HOVER:int = 1;
@@ -30,10 +30,9 @@ package atkinslib.ui
 		 */
 		public function Button(x:int, y:int, w:int, text:String, onClick:Function = null) 
 		{
-			this.x = x;
-			this.y = y;
+			super(x, y, w);
+			
 			clickFunction = onClick;
-			setHitbox(w, 20);
 			
 			_text = new Text(text, 0, 4, {
 				align: "center",
@@ -93,7 +92,7 @@ package atkinslib.ui
 		/**
 		 * Called when the button has been clicked.
 		 */
-		protected function click():void {
+		public override function click():void {
 			if (clickFunction != null) {
 				clickFunction();
 			}
