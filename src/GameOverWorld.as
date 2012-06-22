@@ -1,35 +1,30 @@
 package  
 {
+	import atkinslib.AtkinsWorld;
 	import atkinslib.Highscore;
-	import atkinslib.ScreenEffects;
 	import atkinslib.ui.Button;
 	import net.flashpunk.FP;
-	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Text;
-	import net.flashpunk.World;
 	
 	/**
 	 * ...
 	 * @author Samuel Atkins
 	 */
-	public class GameOverWorld extends World 
+	public class GameOverWorld extends AtkinsWorld 
 	{
 		private var score:int;
-		private var screenEffects:ScreenEffects;
 		
 		public function GameOverWorld(myScore:int) 
 		{
+			super(false, Assets.BACKGROUND_IMG);
 			score = myScore;
 		}
 		
 		override public function begin():void 
 		{
-			screenEffects = new ScreenEffects();
-			add(screenEffects);
-			screenEffects.fadeFromBlack();
+			super.begin();
 			
-			// Background image
-			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
+			screenEffects.fadeFromBlack();
 			
 			addGraphic( new Text("GAME OVER!", 0, 40, 
 				{
@@ -71,8 +66,6 @@ package
 					}
 				));
 			}
-			
-			super.begin();
 		}
 		
 		override public function update():void 
