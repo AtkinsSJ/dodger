@@ -93,6 +93,8 @@ package atkinslib.ui
 		 * Called when the button has been clicked.
 		 */
 		public override function click():void {
+			super.click();
+			
 			if (clickFunction != null) {
 				clickFunction();
 			}

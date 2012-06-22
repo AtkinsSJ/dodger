@@ -13,6 +13,13 @@ package atkinslib.ui
 			
 		}
 		
+		override public function click():void 
+		{
+			super.click();
+			
+			trace("The text box was clicked!");
+		}
+		
 	}
 
 }

@@ -47,6 +47,8 @@ package
 		
 		override public function begin():void 
 		{
+			super.begin();
+			
 			// Pause screen
 			paused = false;
 			pauseScreen = new PauseScreen();
@@ -114,7 +116,6 @@ package
 			// Background image
 			addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
 			
-			super.begin();
 		}
 		
 		override public function update():void 
