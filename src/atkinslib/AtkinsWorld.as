@@ -12,6 +12,7 @@ package atkinslib
 		// Layers
 		protected const BACKGROUND_LAYER:int = 10000;
 		protected const PARTICLE_LAYER:int = -900;
+		protected const UI_LAYER:int = -999;
 		
 		// Whole-screen effects
 		protected var screenEffects:ScreenEffects;

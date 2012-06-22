@@ -1,9 +1,7 @@
 package  
 {
 	import atkinslib.AtkinsWorld;
-	import atkinslib.PauseScreen;
 	import atkinslib.Random;
-	import atkinslib.ScreenEffects;
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Emitter;
@@ -12,7 +10,6 @@ package
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.tweens.misc.MultiVarTween;
 	import net.flashpunk.utils.Ease;
-	import net.flashpunk.World;
 	
 	/**
 	 * ...
@@ -20,8 +17,6 @@ package
 	 */
 	public class GameWorld extends AtkinsWorld
 	{
-		//private var screenEffects:ScreenEffects;
-		
 		private var player:Player;
 		
 		private var score:int;
@@ -38,9 +33,6 @@ package
 		
 		public var emitter:Emitter;
 		
-		//private var paused:Boolean;
-		//private var pauseScreen:PauseScreen;
-		
 		public function GameWorld() 
 		{
 			super(true, Assets.BACKGROUND_IMG);
@@ -50,14 +42,7 @@ package
 		{
 			super.begin();
 			
-			// Pause screen
-			//paused = false;
-			//pauseScreen = new PauseScreen();
-			//add(pauseScreen);
-			
 			// Screen Effects
-			//screenEffects = new ScreenEffects();
-			//add(screenEffects);
 			screenEffects.fadeFromBlack();
 			
 			// Initial difficulty
@@ -85,8 +70,7 @@ package
 				size: 16,
 				color: 0xffffff
 			});
-			// Add the score as an entity, and put it at the front.
-			addGraphic(scoreText).layer = -999;
+			addGraphic(scoreText, UI_LAYER);
 			
 			// Lives and display
 			lives = player.getLives();
@@ -96,8 +80,7 @@ package
 				width: FP.width,
 				align: "right"
 			});
-			// Add the lives as an entity, and put it at the front.
-			addGraphic(livesText).layer = -999;
+			addGraphic(livesText, UI_LAYER);
 			
 			// Particle emitter!
 			emitter = new Emitter(Assets.PARTICLE_IMG, 8,8);
@@ -112,11 +95,6 @@ package
 			fireParticle.setMotion(70, 3, 1.0, 40, 3, 0, Ease.cubeOut)
 						.setAlpha(1, 0, Ease.cubeIn)
 						.setColor(0xff9900, 0x000000, Ease.quadOut);
-			//emitter.active = false;
-			
-			// Background image
-			//addGraphic(new Image(Assets.BACKGROUND_IMG), 10000);
-			
 		}
 		
 		override public function update():void 
