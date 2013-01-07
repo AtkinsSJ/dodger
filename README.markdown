@@ -1,17 +1,13 @@
-Game 1: 'Meteor Strike'
-================
+Meteor Strike
+=============
 
-Meteor Strike is the first game in my '49 Games' project, based on the first game, 'Dodger', here: http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/
-
-49 Games
---------
-
-'49 Games' is an attempt to complete all 49 of the games at the above link, in Flash, in order to get more experience at making games. They're probably not that exciting, but oh well.
+Meteor Strike was originally going to be one of a series of 49 simple games I was going to create,
+but this never happened. Instead, I'm polishing it up.
 
 License
 -------
 
-> Copyright (C) 2012 Samuel Atkins
+> Copyright (C) 2013 Samuel Atkins
 > 
 > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 > 

@@ -1,8 +1,8 @@
 Meteor Strike
-© 2012 Samuel Atkins
+Copyright 2013 Samuel Atkins
 
-Art and Programming:
+Art, Sound and Programming:
 Samuel Atkins
 
 Makes use of the Flashpunk library:
-© 2009 - 2011 Chevy Ray Johnston
+Copyright 2009 - 2011 Chevy Ray Johnston

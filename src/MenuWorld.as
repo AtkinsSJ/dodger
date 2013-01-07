@@ -34,19 +34,19 @@ package
 			}
 			fadeIn = true;
 			
-			addGraphic( new Text("49 Games", 0, 20, 
+			//addGraphic( new Text("49 Games", 0, 20, 
+				//{
+					//align: "center",
+					//size: 24,
+					//color: 0xff0000,
+					//width: FP.width
+				//}
+			//));
+			
+			addGraphic( new Text("Meteor Strike", 0, 30, 
 				{
 					align: "center",
 					size: 24,
-					color: 0xff0000,
-					width: FP.width
-				}
-			));
-			
-			addGraphic( new Text("Game 1: Meteor Strike", 0, 50, 
-				{
-					align: "center",
-					size: 16,
 					color: 0xffff00,
 					width: FP.width
 				}
@@ -82,7 +82,7 @@ package
 			add(new Button(120, 178, 80, "Credits", goToCredits));
 			
 			add(new Button(120, 216, 80, "Visit Website", openWebsite));
-			add(new Button(236, 216, 80, "Github Repo", openGithub));
+			//add(new Button(236, 216, 80, "Github Repo", openGithub));
 		}
 		
 		private function startGame():void
