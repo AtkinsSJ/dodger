@@ -21,11 +21,11 @@ package
 		
 		public function Player() 
 		{
-			graphic = spritemap = new Spritemap(BIKE_PNG, 16, 16);
+			graphic = spritemap = new Spritemap(BIKE_PNG, 16, 32);
 			spritemap.add("straight", [0]);
 			spritemap.play("straight");
-			y = 200;
-			setHitbox(16, 16, 0, 0);
+			y = 190;
+			setHitbox(16, 32, 0, 0);
 			type = "player";
 			
 			lives = 3;
