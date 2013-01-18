@@ -18,18 +18,18 @@ package
 			super(320, 240, 30);
 			FP.screen.scale = 2;
 			
-			FP.console.enable();
+			//FP.console.enable();
 			FP.console.toggleKey = Key.F1;
 			
 			//Input.define("left", Key.LEFT, Key.A);
 			//Input.define("right", Key.RIGHT, Key.D);
-			Input.define("test", Key.SPACE);
+			//Input.define("test", Key.SPACE);
 		}
 		
 		override public function init():void 
 		{
 			FP.world = new MenuWorld();
-			Highscore.init("49games_1");
+			Highscore.init("meteorstrike");
 			
 			super.init();
 		}
