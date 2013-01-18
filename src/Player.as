@@ -41,6 +41,7 @@ package
 		
 		override public function update():void 
 		{
+			var oldX:Number = x;
 			x = Input.mouseX;
 			
 			// Constrain position to the screen
@@ -49,6 +50,9 @@ package
 			} else if ( (x + halfWidth) > FP.width) {
 				x = FP.width - halfWidth;
 			}
+			
+			// Rotate sprite based on distance moved
+			spritemap.angle = oldX - x;
 			
 			// If we collide with an enemy, game over
 			var rock:Rock = collide("rock", x, y) as Rock;
