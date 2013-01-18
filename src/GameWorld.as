@@ -28,6 +28,7 @@ package
 		private var difficultyTween:MultiVarTween;
 		public var spawnDelay:int;
 		public var rockDropTime:Number;
+		private var homingCountdown:int;
 		
 		private var alive:Boolean = true;
 		
@@ -58,6 +59,7 @@ package
 				60
 			);
 			addTween(difficultyTween);
+			homingCountdown = 20;
 			
 			// Player
 			player = new Player();
@@ -114,10 +116,15 @@ package
 				
 				// Add a new rock if necessary
 				if ((score % spawnDelay) == 0) {
-					(create(Rock, true) as Rock).init( Random.getInt(8, FP.width-8), Random.getInt(8, FP.width - 8), rockDropTime );
+					if (homingCountdown == 1) {
+						trace("HOMING METEOR!!!");
+						(create(Rock, true) as Rock).init( Random.getInt(0, FP.width), player.x, rockDropTime );
+						homingCountdown = 20;
+					} else {
+						(create(Rock, true) as Rock).init( Random.getInt(0, FP.width), Random.getInt(0, FP.width), rockDropTime );
+						homingCountdown--;
+					}
 				}
-				
-				//trace(rockDropTime, spawnDelay);
 				
 				super.update();
 			}
@@ -142,7 +149,7 @@ package
 		{
 			if (emitter.active) {
 				for (var i:uint = 0; i < count; i++) {
-					emitter.emit(type, x+4, y+4);
+					emitter.emit(type, x-4, y-4);
 				}
 			}
 			

@@ -35,12 +35,10 @@ package
 			// Rock image
 			image = Assets.getRock();
 			image.centerOrigin();
-			image.x = 8;
-			image.y = 8;
 			
 			graphic = image;
 			
-			setHitbox(16, 16, 0, 0);
+			setHitbox(16, 16, 8, 8);
 			type = "rock";
 		}
 		
