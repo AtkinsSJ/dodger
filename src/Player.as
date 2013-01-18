@@ -22,10 +22,17 @@ package
 		public function Player() 
 		{
 			graphic = spritemap = new Spritemap(BIKE_PNG, 16, 32);
-			spritemap.add("straight", [0]);
+			spritemap.add("straight", [0, 1], 10);
 			spritemap.play("straight");
-			y = 190;
-			setHitbox(16, 32, 0, 0);
+			y = 215;
+			
+			var offX:int = 8,
+				offY:int = 30;
+			
+			setHitbox(16, 32, offX, offY);
+			graphic.x = -offX;
+			graphic.y = -offY;
+			
 			type = "player";
 			
 			lives = 3;
@@ -34,13 +41,13 @@ package
 		
 		override public function update():void 
 		{
-			x = Input.mouseX - 8;
+			x = Input.mouseX;
 			
 			// Constrain position to the screen
-			if (x < 0) {
-				x = 0;
-			} else if ( (x + width) > FP.width) {
-				x = FP.width - width;
+			if (x < halfWidth) {
+				x = halfWidth;
+			} else if ( (x + halfWidth) > FP.width) {
+				x = FP.width - halfWidth;
 			}
 			
 			// If we collide with an enemy, game over

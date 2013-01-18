@@ -18,8 +18,8 @@ package
 			super(320, 240, 30);
 			FP.screen.scale = 2;
 			
-			//FP.console.enable();
-			FP.console.toggleKey = 223;
+			FP.console.enable();
+			FP.console.toggleKey = Key.F1;
 			
 			//Input.define("left", Key.LEFT, Key.A);
 			//Input.define("right", Key.RIGHT, Key.D);
