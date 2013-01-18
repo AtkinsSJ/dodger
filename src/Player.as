@@ -4,6 +4,7 @@ package
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.utils.Input;
 	
 	/**
@@ -12,12 +13,17 @@ package
 	 */
 	public class Player extends Entity 
 	{
+		[Embed(source = "../assets/bike.png")] private static const BIKE_PNG:Class;
+		
 		private var lives:uint;
 		private var invincible:Boolean;
+		private var spritemap:Spritemap;
 		
 		public function Player() 
 		{
-			graphic = new Image(new BitmapData(16, 16, true, 0xff00ff00));
+			graphic = spritemap = new Spritemap(BIKE_PNG, 16, 16);
+			spritemap.add("straight", [0]);
+			spritemap.play("straight");
 			y = 200;
 			setHitbox(16, 16, 0, 0);
 			type = "player";

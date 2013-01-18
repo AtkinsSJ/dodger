@@ -16,16 +16,16 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'07/01/2013'</value>
+      <value>'18/01/2013'</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Documents and Settings\Sam\My Documents\GitHub\dodger\src</path-element>
+      <path-element>C:\Users\Sam\Documents\49 Games\1 Dodger\src</path-element>
       <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Documents and Settings\Sam\My Documents\GitHub\dodger\src\Preloader.as</path-element>
+    <path-element>C:\Users\Sam\Documents\49 Games\1 Dodger\src\Preloader.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
