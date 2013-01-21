@@ -1,8 +1,9 @@
 Meteor Strike
 Copyright 2013 Samuel Atkins
 
-Art, Sound and Programming:
-Samuel Atkins
+Music:
+'Breakdown' and 'Riptude',
+Copyright Kevin MacLeod (incompetech.com)
 
 Makes use of the Flashpunk library:
 Copyright 2009 - 2011 Chevy Ray Johnston

@@ -17,7 +17,6 @@ package
 		private static var fadeIn:Boolean = false;
 		
 		private const WEBSITE_URL:String = "http://samatkins.co.uk";
-		private const GITHUB_URL:String = "https://github.com/AtkinsSJ/dodger";
 		
 		public function MenuWorld() 
 		{
@@ -33,15 +32,6 @@ package
 				screenEffects.fadeFromBlack();
 			}
 			fadeIn = true;
-			
-			//addGraphic( new Text("49 Games", 0, 20, 
-				//{
-					//align: "center",
-					//size: 24,
-					//color: 0xff0000,
-					//width: FP.width
-				//}
-			//));
 			
 			addGraphic( new Text("Meteor Strike", 0, 30, 
 				{
@@ -82,7 +72,6 @@ package
 			add(new Button(120, 178, 80, "Credits", goToCredits));
 			
 			add(new Button(120, 216, 80, "Visit Website", openWebsite));
-			//add(new Button(236, 216, 80, "Github Repo", openGithub));
 		}
 		
 		private function startGame():void
@@ -95,11 +84,6 @@ package
 		private function openWebsite():void
 		{
 			navigateToURL( new URLRequest(WEBSITE_URL), "_blank" );
-		}
-		
-		private function openGithub():void
-		{
-			navigateToURL( new URLRequest(GITHUB_URL), "_blank" );
 		}
 		
 		private function goToCredits():void

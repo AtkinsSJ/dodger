@@ -117,7 +117,6 @@ package
 				// Add a new rock if necessary
 				if ((score % spawnDelay) == 0) {
 					if (homingCountdown == 1) {
-						trace("HOMING METEOR!!!");
 						(create(Rock, true) as Rock).init( Random.getInt(0, FP.width), player.x, rockDropTime );
 						homingCountdown = 20;
 					} else {
