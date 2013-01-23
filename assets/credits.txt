@@ -2,7 +2,7 @@ Meteor Strike
 Copyright 2013 Samuel Atkins
 
 Music:
-'Breakdown' and 'Riptude',
+'Breakdown' and 'Riptide',
 Copyright Kevin MacLeod (incompetech.com)
 
 Makes use of the Flashpunk library:

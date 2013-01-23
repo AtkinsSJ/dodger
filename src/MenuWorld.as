@@ -7,6 +7,7 @@ package
 	import flash.net.URLRequest;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
+	import net.flashpunk.Sfx;
 	
 	/**
 	 * ...
@@ -26,6 +27,7 @@ package
 		override public function begin():void 
 		{
 			super.begin();
+			(FP.engine as Main).music.playBreakdown();
 			
 			// Don't fade in the first time.
 			if (fadeIn) {

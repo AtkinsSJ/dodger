@@ -42,6 +42,7 @@ package
 		override public function begin():void 
 		{
 			super.begin();
+			(FP.engine as Main).music.playRiptide();
 			
 			// Screen Effects
 			screenEffects.fadeFromBlack();

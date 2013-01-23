@@ -1,6 +1,7 @@
 package 
 {
 	import atkinslib.Highscore;
+	import atkinslib.MusicManager;
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -12,6 +13,7 @@ package
 	 */
 	public class Main extends Engine
 	{
+		public var music:MusicManager;
 		
 		public function Main():void 
 		{
@@ -24,6 +26,7 @@ package
 			//Input.define("left", Key.LEFT, Key.A);
 			//Input.define("right", Key.RIGHT, Key.D);
 			//Input.define("test", Key.SPACE);
+			music = new MusicManager();
 		}
 		
 		override public function init():void 
