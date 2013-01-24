@@ -21,7 +21,7 @@ package
 		
 		public function MenuWorld() 
 		{
-			super(false, Assets.BACKGROUND_IMG);
+			super(false, Assets.MENUBACKGROUND_IMG);
 		}
 		
 		override public function begin():void 
@@ -34,15 +34,6 @@ package
 				screenEffects.fadeFromBlack();
 			}
 			fadeIn = true;
-			
-			addGraphic( new Text("Meteor Strike", 0, 30, 
-				{
-					align: "center",
-					size: 24,
-					color: 0xffff00,
-					width: FP.width
-				}
-			));
 			
 			addGraphic( new Text( "High score: " + Highscore.getScore(), 0, 110,
 				{

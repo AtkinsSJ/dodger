@@ -12,6 +12,9 @@ package
 		[Embed(source = "../assets/background.png")]
 		public static const BACKGROUND_IMG:Class;
 		
+		[Embed(source = "../assets/menubackground.png")]
+		public static const MENUBACKGROUND_IMG:Class;
+		
 		[Embed(source = "../assets/particles.png")]
 		public static const PARTICLE_IMG:Class;
 		
