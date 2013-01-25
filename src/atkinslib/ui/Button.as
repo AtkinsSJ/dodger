@@ -5,6 +5,7 @@ package atkinslib.ui
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.utils.Input;
+	import net.flashpunk.FP;
 	
 	/**
 	 * ...
@@ -86,6 +87,8 @@ package atkinslib.ui
 		 */
 		public override function click():void {
 			super.click();
+			
+			(FP.engine as Main).sound.play("click");
 			
 			if (clickFunction != null) {
 				clickFunction();
