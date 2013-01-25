@@ -63,10 +63,6 @@ package atkinslib.ui
 				} else {
 					state = STATE_HOVER;
 				}
-			
-				if (Input.mouseReleased) {
-					click();
-				}
 				
 			} else {
 				state = STATE_DEFAULT;

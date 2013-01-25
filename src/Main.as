@@ -37,6 +37,12 @@ package
 			super.init();
 		}
 		
+		override public function update():void 
+		{
+			super.update();
+			
+		}
+		
 	}
 	
 }

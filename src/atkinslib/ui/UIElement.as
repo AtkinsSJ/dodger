@@ -1,6 +1,7 @@
 package atkinslib.ui 
 {
 	import net.flashpunk.Entity;
+	import net.flashpunk.utils.Input;
 	
 	/**
 	 * ...
@@ -15,8 +16,18 @@ package atkinslib.ui
 			setHitbox(w, h);
 		}
 		
+		override public function update():void 
+		{
+			super.update();
+			
+			
+			if (collidePoint(x, y, world.mouseX, world.mouseY) && Input.mouseReleased) {
+				click();
+			}
+		}
+		
 		/**
-		 * Override to respind to being clicked
+		 * Override to respond to being clicked
 		 */
 		public function click():void
 		{

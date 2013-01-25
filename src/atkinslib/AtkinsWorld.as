@@ -1,5 +1,6 @@
 package atkinslib 
 {
+	import atkinslib.ui.MusicToggle;
 	import net.flashpunk.graphics.Stamp;
 	import net.flashpunk.World;
 	
@@ -42,6 +43,8 @@ package atkinslib
 		override public function begin():void 
 		{
 			super.begin();
+			
+			add(new MusicToggle());
 			
 			// Pause screen
 			paused = false;

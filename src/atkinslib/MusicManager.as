@@ -12,6 +12,9 @@ package atkinslib
 		private var breakdown:Sfx;
 		private var riptide:Sfx;
 		
+		private var enabled:Boolean = true;
+		private var currentTrack:Sfx = null;
+		
 		public function MusicManager() 
 		{
 			riptide = new Sfx(RIPTIDE_MP3);
@@ -19,20 +22,50 @@ package atkinslib
 		}
 		
 		public function playBreakdown():void {
-			if (breakdown.playing) {
-				return;
-			} else {
-				riptide.stop();
-				breakdown.loop();
+			currentTrack = breakdown;
+			if (enabled) {
+				if (breakdown.playing) {
+					return;
+				} else {
+					riptide.stop();
+					breakdown.loop();
+				}
 			}
 		}
 		
 		public function playRiptide():void {
-			if (riptide.playing) {
-				return;
+			currentTrack = riptide;
+			if (enabled) {
+				if (riptide.playing) {
+					return;
+				} else {
+					breakdown.stop();
+					riptide.loop();
+				}
+			}
+		}
+		
+		public function enable():void {
+			enabled = true;
+			currentTrack.loop();
+		}
+		
+		public function disable():void {
+			enabled = false;
+			currentTrack.stop();
+		}
+		
+		/**
+		 * Toggles the music
+		 * @return the new music state
+		 */
+		public function toggle():Boolean {
+			if (enabled) {
+				disable();
+				return false;
 			} else {
-				breakdown.stop();
-				riptide.loop();
+				enable();
+				return true;
 			}
 		}
 		
