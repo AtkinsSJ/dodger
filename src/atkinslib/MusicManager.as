@@ -7,8 +7,6 @@ package atkinslib
 	 */
 	public class MusicManager 
 	{
-		[Embed(source = "../../assets/Breakdown.mp3")] private static const BREAKDOWN_MP3:Class;
-		[Embed(source = "../../assets/Riptide2.mp3")] private static const RIPTIDE_MP3:Class;
 		private var breakdown:Sfx;
 		private var riptide:Sfx;
 		
@@ -17,8 +15,8 @@ package atkinslib
 		
 		public function MusicManager() 
 		{
-			riptide = new Sfx(RIPTIDE_MP3);
-			breakdown = new Sfx(BREAKDOWN_MP3);
+			riptide = new Sfx(Assets.RIPTIDE_MP3);
+			breakdown = new Sfx(Assets.BREAKDOWN_MP3);
 		}
 		
 		public function playBreakdown():void {

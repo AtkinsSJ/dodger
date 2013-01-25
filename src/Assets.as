@@ -36,6 +36,12 @@ package
 		private static const ROCK_HEIGHT:int = 16;
 		private static const ROCK_COUNT:int = 2;
 		
+		// AUDIO!
+		[Embed(source = "../assets/Breakdown.mp3")] public static const BREAKDOWN_MP3:Class;
+		[Embed(source = "../assets/Riptide2.mp3")] public static const RIPTIDE_MP3:Class;
+		
+		[Embed(source = "../assets/click.mp3")] public static const CLICK_MP3:Class;
+		
 		public function Assets() 
 		{
 			
