@@ -2,6 +2,7 @@ package
 {
 	import atkinslib.Highscore;
 	import atkinslib.MusicManager;
+	import atkinslib.SoundManager;
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -14,6 +15,7 @@ package
 	public class Main extends Engine
 	{
 		public var music:MusicManager;
+		public var sound:SoundManager;
 		
 		public function Main():void 
 		{
@@ -23,10 +25,8 @@ package
 			//FP.console.enable();
 			FP.console.toggleKey = Key.F1;
 			
-			//Input.define("left", Key.LEFT, Key.A);
-			//Input.define("right", Key.RIGHT, Key.D);
-			//Input.define("test", Key.SPACE);
 			music = new MusicManager();
+			sound = new SoundManager();
 		}
 		
 		override public function init():void 

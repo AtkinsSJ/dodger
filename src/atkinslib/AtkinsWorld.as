@@ -1,6 +1,7 @@
 package atkinslib 
 {
 	import atkinslib.ui.MusicToggle;
+	import atkinslib.ui.SoundToggle;
 	import net.flashpunk.graphics.Stamp;
 	import net.flashpunk.World;
 	
@@ -45,6 +46,7 @@ package atkinslib
 			super.begin();
 			
 			add(new MusicToggle());
+			add(new SoundToggle());
 			
 			// Pause screen
 			paused = false;

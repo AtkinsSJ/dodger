@@ -2,6 +2,7 @@ package atkinslib.ui
 {
 	import atkinslib.MusicManager;
 	import net.flashpunk.FP;
+	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import net.flashpunk.graphics.Image;
@@ -13,13 +14,15 @@ package atkinslib.ui
 	public class MusicToggle extends UIElement 
 	{
 		private var music:MusicManager;
+		private var spritemap:Spritemap;
 		
 		public function MusicToggle() 
 		{
 			super(0, 0, 20, 20);
 			x = FP.width - width;
 			music = (FP.engine as Main).music;
-			graphic = Image.createCircle(10, 0xff0000);
+			graphic = spritemap = new Spritemap(Assets.MUSIC_IMG, 20, 20);
+			spritemap.frame = music.isEnabled() ? 0 : 1;
 			layer = -9999;
 		}
 		
@@ -38,7 +41,8 @@ package atkinslib.ui
 		}
 		
 		private function toggle():void {
-			music.toggle();
+			spritemap.frame = music.toggle() ? 0 : 1;
+			
 		}
 		
 	}

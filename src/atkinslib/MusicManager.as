@@ -69,6 +69,10 @@ package atkinslib
 			}
 		}
 		
+		public function isEnabled():Boolean {
+			return enabled;
+		}
+		
 	}
 
 }

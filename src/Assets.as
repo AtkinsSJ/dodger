@@ -24,6 +24,12 @@ package
 		[Embed(source = "../assets/buttons.png")]
 		public static const BUTTONS_IMG:Class;
 		
+		[Embed(source = "../assets/music.png")]
+		public static const MUSIC_IMG:Class;
+		
+		[Embed(source = "../assets/sound.png")]
+		public static const SOUND_IMG:Class;
+		
 		[Embed(source = "../assets/rock.png")]
 		public static const ROCK_IMG:Class;
 		private static const ROCK_WIDTH:int = 16;
