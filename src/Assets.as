@@ -21,6 +21,9 @@ package
 		[Embed(source = "../assets/shadow.png")]
 		public static const SHADOW_IMG:Class;
 		
+		[Embed(source = "../assets/buttons.png")]
+		public static const BUTTONS_IMG:Class;
+		
 		[Embed(source = "../assets/rock.png")]
 		public static const ROCK_IMG:Class;
 		private static const ROCK_WIDTH:int = 16;

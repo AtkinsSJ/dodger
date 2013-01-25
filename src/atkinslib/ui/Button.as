@@ -2,6 +2,7 @@ package atkinslib.ui
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.utils.Input;
 	
@@ -16,7 +17,7 @@ package atkinslib.ui
 		private static const STATE_CLICK:int = 2;
 		
 		protected var state:int;
-		protected var image:Image;
+		protected var spritemap:Spritemap;
 		
 		private var clickFunction:Function = null;
 		
@@ -42,9 +43,10 @@ package atkinslib.ui
 			});
 			
 			state = STATE_DEFAULT;
-			image = Image.createRect(width, height);
+			spritemap = new Spritemap(Assets.BUTTONS_IMG, 80, 20);
+			spritemap.frame = STATE_DEFAULT;
 			
-			addGraphic(image);
+			addGraphic(spritemap);
 			addGraphic(_text);
 		}
 		
@@ -80,13 +82,7 @@ package atkinslib.ui
 		 * Called when the state changes. Override to customise.
 		 */
 		protected function stateChanged():void {
-			if (state == STATE_DEFAULT) {
-					image.color = 0xffffff;
-				} else if (state == STATE_HOVER) {
-					image.color = 0xffff00;
-				} else if (state == STATE_CLICK) {
-					image.color = 0xff0000;
-				}
+			spritemap.frame = state;
 		}
 		
 		/**
