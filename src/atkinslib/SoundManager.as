@@ -13,6 +13,12 @@ package atkinslib
 		
 		public function SoundManager() {
 			sounds["click"] = new Sfx(Assets.CLICK_MP3);
+			sounds["smash"] = new Sfx(Assets.SMASH_MP3);
+			sounds["bang1"] = new Sfx(Assets.BANG1_MP3);
+			sounds["bang2"] = new Sfx(Assets.BANG2_MP3);
+			sounds["bang3"] = new Sfx(Assets.BANG3_MP3);
+			sounds["bang4"] = new Sfx(Assets.BANG4_MP3);
+			sounds["scream"] = new Sfx(Assets.SCREAM_MP3);
 		}
 		
 		public function play(soundName:String):void {

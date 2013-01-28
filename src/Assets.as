@@ -41,11 +41,12 @@ package
 		[Embed(source = "../assets/Riptide2.mp3")] public static const RIPTIDE_MP3:Class;
 		
 		[Embed(source = "../assets/click.mp3")] public static const CLICK_MP3:Class;
-		
-		public function Assets() 
-		{
-			
-		}
+		[Embed(source = "../assets/smash2.mp3")] public static const SMASH_MP3:Class;
+		[Embed(source = "../assets/bang1.mp3")] public static const BANG1_MP3:Class;
+		[Embed(source = "../assets/bang2.mp3")] public static const BANG2_MP3:Class;
+		[Embed(source = "../assets/bang3.mp3")] public static const BANG3_MP3:Class;
+		[Embed(source = "../assets/bang4.mp3")] public static const BANG4_MP3:Class;
+		[Embed(source = "../assets/scream.mp3")] public static const SCREAM_MP3:Class;
 		
 		public static function getRock():Image
 		{

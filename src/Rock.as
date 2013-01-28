@@ -76,6 +76,13 @@ package
 			
 			// Explode if we hit the ground
 			if (collideRect(x, y, 0, 215, FP.width, 30)) {
+				var i:int = Random.getInt(0, 2);
+				switch (i) {
+					case 0: (FP.engine as Main).sound.play("bang1"); break;
+					case 1: (FP.engine as Main).sound.play("bang2"); break;
+					case 2: (FP.engine as Main).sound.play("bang3"); break;
+				}
+				(FP.engine as Main).sound.play("smash");
 				explode();
 			}
 			

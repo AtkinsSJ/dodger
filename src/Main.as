@@ -24,6 +24,7 @@ package
 			
 			//FP.console.enable();
 			FP.console.toggleKey = Key.F1;
+			FP.volume = 0.5;
 			
 			music = new MusicManager();
 			sound = new SoundManager();

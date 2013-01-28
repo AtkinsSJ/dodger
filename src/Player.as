@@ -66,6 +66,8 @@ package
 		
 		private function loseLife():void
 		{
+			(FP.engine as Main).sound.play("smash");
+			
 			collidable = false;
 			invincible = true;
 			
@@ -75,8 +77,13 @@ package
 				lives--;
 			}
 			if (lives == 0) {
-				(world as GameWorld).gameOver();
+				die();
 			}
+		}
+		
+		private function die():void {
+			(FP.engine as Main).sound.play("scream");
+			(world as GameWorld).gameOver();
 		}
 		
 		/**
