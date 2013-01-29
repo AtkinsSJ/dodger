@@ -6,8 +6,10 @@ package
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.tweens.misc.MultiVarTween;
+	import net.flashpunk.tweens.misc.VarTween;
 	import net.flashpunk.utils.Input;
 	import atkinslib.Random;
+	import net.flashpunk.utils.Ease;
 	
 	/**
 	 * ...
@@ -21,11 +23,13 @@ package
 		
 		private var riderImage:Image;
 		private var helmetImage:Image;
+		private var bikeImage:Image;
 		
 		// Accelerations for death animation
 		public var xAcc:Number = 0;
 		public var yAcc:Number = 0;
 		public var rotation:Number = 0;
+		public var tip:Number = 0;
 		
 		public function Player() 
 		{
@@ -40,6 +44,13 @@ package
 			helmetImage = new Image(Assets.HELMET_IMG);
 			helmetImage.visible = false;
 			addGraphic(helmetImage);
+			bikeImage = new Image(Assets.NORIDER_IMG);
+			bikeImage.visible = false;
+			bikeImage.x = 8;
+			bikeImage.y = 30;
+			bikeImage.originX = 8;
+			bikeImage.originY = 22;
+			addGraphic(bikeImage);
 			
 			y = 215;
 			
@@ -118,6 +129,7 @@ package
 			spritemap.visible = false; // Hide 'riding' sprite
 			riderImage.visible = true; // Show the biker sprite
 			helmetImage.visible = true;
+			bikeImage.visible = true;
 			
 			addTween(deathTween);
 			yAcc = -10
@@ -128,6 +140,10 @@ package
 				yAcc: 10,
 				rotation: 0
 			}, 2);
+			
+			var tipTween:VarTween = new VarTween();
+			addTween(tipTween);
+			tipTween.tween(bikeImage, "angle", 90, 1, Ease.backIn);
 		}
 		
 		/**

@@ -39,6 +39,7 @@ package
 		[Embed(source = "../assets/bike.png")] public static const BIKE_IMG:Class;
 		[Embed(source = "../assets/fling.png")] public static const RIDER_IMG:Class;
 		[Embed(source = "../assets/helmet.png")] public static const HELMET_IMG:Class;
+		[Embed(source = "../assets/riderless.png")] public static const NORIDER_IMG:Class;
 		
 		// AUDIO!
 		[Embed(source = "../assets/Breakdown.mp3")] public static const BREAKDOWN_MP3:Class;
