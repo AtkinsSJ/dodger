@@ -28,7 +28,7 @@ package
 			
 			// Text
 			var creditsText:ByteArray = new CREDITS_FILE();
-			addGraphic( new Text(creditsText.readUTFBytes(creditsText.length), 0, 20, 
+			addGraphic( new Text(creditsText.readUTFBytes(creditsText.length), 0, 14, 
 				{
 					align: "center",
 					size: 8,

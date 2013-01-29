@@ -21,7 +21,27 @@ package
 		{
 			super.begin();
 			
+			addGraphic( new Text("How to Play", 0, 20, 
+				{
+					align: "center",
+					size: 16,
+					color: 0xffffff,
+					width: FP.width,
+					wordWrap: true
+				}
+			));
+			
 			addGraphic( new Text("Move using the mouse, and try to survive\nthe meteor strike for as long as possible!", 0, 80, 
+				{
+					align: "center",
+					size: 8,
+					color: 0xffffff,
+					width: FP.width,
+					wordWrap: true
+				}
+			));
+			
+			addGraphic( new Text("You can toggle the music with M and the sound with S.", 0, 140, 
 				{
 					align: "center",
 					size: 8,

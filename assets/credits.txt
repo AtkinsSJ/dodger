@@ -5,5 +5,8 @@ Music:
 'Breakdown' and 'Riptide',
 Copyright Kevin MacLeod (incompetech.com)
 
+Sounds:
+All Creative Commons, from http://www.freesound.org/
+
 Makes use of the Flashpunk library:
 Copyright 2009 - 2011 Chevy Ray Johnston
