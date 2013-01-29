@@ -5,6 +5,7 @@ package
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Spritemap;
+	import net.flashpunk.tweens.misc.MultiVarTween;
 	import net.flashpunk.utils.Input;
 	
 	/**
@@ -41,24 +42,26 @@ package
 		
 		override public function update():void 
 		{
-			var oldX:Number = x;
-			x = Input.mouseX;
-			
-			// Constrain position to the screen
-			if (x < halfWidth) {
-				x = halfWidth;
-			} else if ( (x + halfWidth) > FP.width) {
-				x = FP.width - halfWidth;
-			}
-			
-			// Rotate sprite based on distance moved
-			spritemap.angle = oldX - x;
-			
-			// If we collide with an enemy, game over
-			var rock:Rock = collide("rock", x, y) as Rock;
-			if (rock) {
-				loseLife();
-				rock.explode();
+			if (lives > 0) {
+				var oldX:Number = x;
+				x = Input.mouseX;
+				
+				// Constrain position to the screen
+				if (x < halfWidth) {
+					x = halfWidth;
+				} else if ( (x + halfWidth) > FP.width) {
+					x = FP.width - halfWidth;
+				}
+				
+				// Rotate sprite based on distance moved
+				spritemap.angle = oldX - x;
+				
+				// If we collide with an enemy, game over
+				var rock:Rock = collide("rock", x, y) as Rock;
+				if (rock) {
+					loseLife();
+					rock.explode();
+				}
 			}
 			
 			super.update();
@@ -76,6 +79,7 @@ package
 			if (lives > 0) {
 				lives--;
 			}
+			
 			if (lives == 0) {
 				die();
 			}
@@ -83,7 +87,14 @@ package
 		
 		private function die():void {
 			(FP.engine as Main).sound.play("scream");
-			(world as GameWorld).gameOver();
+			var deathTween:MultiVarTween = new MultiVarTween(function():void {
+				(world as GameWorld).gameOver();
+			});
+			addTween(deathTween);
+			deathTween.tween(this, {
+				x: 0,
+				y: 0
+			}, 2);
 		}
 		
 		/**
