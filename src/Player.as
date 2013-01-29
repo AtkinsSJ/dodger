@@ -15,11 +15,12 @@ package
 	 */
 	public class Player extends Entity 
 	{
-		[Embed(source = "../assets/bike.png")] private static const BIKE_PNG:Class;
-		
 		private var lives:uint;
 		private var invincible:Boolean;
 		private var spritemap:Spritemap;
+		
+		private var riderImage:Image;
+		private var helmetImage:Image;
 		
 		// Accelerations for death animation
 		public var xAcc:Number = 0;
@@ -28,9 +29,18 @@ package
 		
 		public function Player() 
 		{
-			graphic = spritemap = new Spritemap(BIKE_PNG, 16, 32);
+			spritemap = new Spritemap(Assets.BIKE_IMG, 16, 32);
 			spritemap.add("straight", [0, 1], 10);
 			spritemap.play("straight");
+			addGraphic(spritemap);
+			
+			riderImage = new Image(Assets.RIDER_IMG);
+			riderImage.visible = false;
+			addGraphic(riderImage);
+			helmetImage = new Image(Assets.HELMET_IMG);
+			helmetImage.visible = false;
+			addGraphic(helmetImage);
+			
 			y = 215;
 			
 			var offX:int = 8,
@@ -69,9 +79,13 @@ package
 					rock.explode();
 				}
 			} else {
-				spritemap.x += xAcc;
-				spritemap.y += yAcc;
-				spritemap.angle += rotation;
+				riderImage.x += xAcc;
+				riderImage.y += yAcc;
+				riderImage.angle += rotation;
+				
+				helmetImage.x -= (xAcc * 2);
+				helmetImage.y += (yAcc / 2);
+				helmetImage.angle -= rotation;
 			}
 			
 			super.update();
@@ -100,6 +114,11 @@ package
 			var deathTween:MultiVarTween = new MultiVarTween(function():void {
 				(world as GameWorld).gameOver();
 			});
+			
+			spritemap.visible = false; // Hide 'riding' sprite
+			riderImage.visible = true; // Show the biker sprite
+			helmetImage.visible = true;
+			
 			addTween(deathTween);
 			yAcc = -10
 			xAcc = Random.getFloat(3, 8) * (Random.getBoolean() ? 1 : -1);
