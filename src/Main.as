@@ -33,7 +33,7 @@ package
 		override public function init():void 
 		{
 			FP.world = new MenuWorld();
-			Highscore.init("meteorstrike");
+			Highscore.init("meteorbike");
 			
 			super.init();
 		}

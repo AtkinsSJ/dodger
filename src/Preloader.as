@@ -4,6 +4,7 @@ package
 	import flash.events.*;
 	import flash.text.*;
 	import flash.utils.getDefinitionByName;
+	import mochi.as3.*;
 	
 	[SWF(width = "640", hight = "480")]
 	
@@ -57,6 +58,14 @@ package
 			border.graphics.clear();
 			border.graphics.lineStyle(2, loaderColour);
 			border.graphics.drawRect(0, 0, loaderWidth, loaderHeight);
+			
+			// Mochi stuff
+			var mochiClip:MovieClip = new MovieClip();
+			mochiClip.x = 70;
+			mochiClip.y = 40;
+			parent.addChild(mochiClip);
+			MochiServices.connect("efb5ef1a51dbf9db", mochiClip, trace);
+			MochiScores.setBoardID("b2f83322c4cf2023");
 		}
 		
 		private function progress(e:Event):void 

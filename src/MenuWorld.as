@@ -8,6 +8,7 @@ package
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.Sfx;
+	import mochi.as3.*;
 	
 	/**
 	 * ...
@@ -51,9 +52,9 @@ package
 				}
 			));
 			
-			add(new Button(120, 140, 80, "Start Game", startGame));
-			add(new Button(120, 178, 80, "Credits", goToCredits));
-			
+			add(new Button(120, 144, 80, "Start Game", startGame));
+			add(new Button(120, 168, 80, "High Scores", showScores));
+			add(new Button(120, 192, 80, "Credits", goToCredits));
 			add(new Button(120, 216, 80, "Visit Website", openWebsite));
 		}
 		
@@ -73,6 +74,19 @@ package
 		{
 			screenEffects.fadeToBlack(0.7, function():void {
 				FP.world = new CreditsWorld();
+			});
+		}
+		
+		private function showScores():void {
+			FP.engine.parent.setChildIndex(FP.engine, 0);
+			FP.engine.paused = true;
+			MochiScores.showLeaderboard( {
+				onDisplay: function():void { trace("SHOWING SCORES!!!!!!!!!!!"); },
+				onClose: function():void { trace("CLOSING SCORES!!!!!!!!!!!"); FP.engine.paused = false; },
+				onError: function():void { trace("ERROR SHOWING SCORES!!!!!!!!!!!"); },
+				
+				width: 500,
+				height: 400
 			});
 		}
 	}
