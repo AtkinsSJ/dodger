@@ -44,16 +44,6 @@ package
 				}
 			));
 			
-			addGraphic( new Text("Move using the mouse, and try to survive\nthe meteor strike for as long as possible!", 0, 80, 
-				{
-					align: "center",
-					size: 8,
-					color: 0xffffff,
-					width: FP.width,
-					wordWrap: true
-				}
-			));
-			
 			addGraphic( new Text("Build: " + Version.Build, 12, 220,
 				{
 					size: 8,
@@ -70,7 +60,7 @@ package
 		private function startGame():void
 		{
 			screenEffects.fadeToBlack(0.7, function():void {
-				FP.world = new GameWorld();
+				FP.world = new InstructionsWorld();
 			});
 		}
 		

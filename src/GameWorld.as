@@ -80,7 +80,7 @@ package
 			livesText = new Text("Lives: " + lives, 0, 0, {
 				size: 16,
 				color: 0xffffff,
-				width: FP.width,
+				width: FP.width - 100,
 				align: "right"
 			});
 			addGraphic(livesText, UI_LAYER);
