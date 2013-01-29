@@ -133,10 +133,9 @@ package
 			
 			addTween(deathTween);
 			yAcc = -10
-			xAcc = Random.getFloat(3, 8) * (Random.getBoolean() ? 1 : -1);
+			xAcc = Random.getFloat(3, 5) * (Random.getBoolean() ? 1 : -1);
 			rotation = Random.getFloat(3, 8) * (Random.getBoolean() ? 1 : -1);
 			deathTween.tween(this, {
-				xAcc: 0,
 				yAcc: 10,
 				rotation: 0
 			}, 2);
