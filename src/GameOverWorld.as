@@ -53,6 +53,7 @@ package
 				}
 			));
 			
+			add(new Button(120, 178, 80, "Retry", goToGame));
 			add(new Button(120, 216, 80, "Main Menu", goToMenu));
 			
 			if (Highscore.setScore(score)) {
@@ -77,6 +78,13 @@ package
 		{
 			screenEffects.fadeToBlack(0.7, function():void {
 				FP.world = new MenuWorld();
+			});
+		}
+		
+		private function goToGame():void
+		{
+			screenEffects.fadeToBlack(0.7, function():void {
+				FP.world = new GameWorld();
 			});
 		}
 	}
