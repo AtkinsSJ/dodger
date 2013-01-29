@@ -7,6 +7,7 @@ package
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.tweens.misc.MultiVarTween;
 	import net.flashpunk.utils.Input;
+	import atkinslib.Random;
 	
 	/**
 	 * ...
@@ -19,6 +20,11 @@ package
 		private var lives:uint;
 		private var invincible:Boolean;
 		private var spritemap:Spritemap;
+		
+		// Accelerations for death animation
+		public var xAcc:Number = 0;
+		public var yAcc:Number = 0;
+		public var rotation:Number = 0;
 		
 		public function Player() 
 		{
@@ -62,6 +68,10 @@ package
 					loseLife();
 					rock.explode();
 				}
+			} else {
+				spritemap.x += xAcc;
+				spritemap.y += yAcc;
+				spritemap.angle += rotation;
 			}
 			
 			super.update();
@@ -91,9 +101,13 @@ package
 				(world as GameWorld).gameOver();
 			});
 			addTween(deathTween);
+			yAcc = -10
+			xAcc = Random.getFloat(3, 8) * (Random.getBoolean() ? 1 : -1);
+			rotation = Random.getFloat(3, 8) * (Random.getBoolean() ? 1 : -1);
 			deathTween.tween(this, {
-				x: 0,
-				y: 0
+				xAcc: 0,
+				yAcc: 10,
+				rotation: 0
 			}, 2);
 		}
 		
