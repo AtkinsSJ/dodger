@@ -1,7 +1,6 @@
 package  
 {
 	import atkinslib.AtkinsWorld;
-	import atkinslib.Highscore;
 	import atkinslib.ui.Button;
 	import flash.net.navigateToURL;
 	import flash.net.URLRequest;
@@ -35,15 +34,6 @@ package
 				screenEffects.fadeFromBlack();
 			}
 			fadeIn = true;
-			
-			addGraphic( new Text( "High score: " + Highscore.getScore(), 0, 110,
-				{
-					align: "center",
-					size: 16,
-					color: 0x00ff00,
-					width: FP.width
-				}
-			));
 			
 			addGraphic( new Text("Build: " + Version.Build, 12, 220,
 				{

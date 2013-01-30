@@ -1,7 +1,6 @@
 package  
 {
 	import atkinslib.AtkinsWorld;
-	import atkinslib.Highscore;
 	import atkinslib.ui.Button;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
@@ -13,12 +12,12 @@ package
 	 */
 	public class GameOverWorld extends AtkinsWorld 
 	{
-		private var score:int;
+		private var _score:int;
 		
 		public function GameOverWorld(myScore:int) 
 		{
 			super(false, Assets.BACKGROUND_IMG);
-			score = myScore;
+			_score = myScore;
 		}
 		
 		override public function begin():void 
@@ -36,42 +35,21 @@ package
 				}
 			));
 			
-			//addGraphic( new Text("Score: " + score, 0, 75, 
-				//{
-					//align: "center",
-					//size: 32,
-					//color: 0xffff00,
-					//width: FP.width
-				//}
-			//));
-			//
-			//addGraphic( new Text("Previous best: " + Highscore.getScore(), 0, 120, 
-				//{
-					//align: "center",
-					//size: 16,
-					//color: 0x00ff00,
-					//width: FP.width
-				//}
-			//));
+			addGraphic( new Text("Score: " + _score, 0, 75, 
+				{
+					align: "center",
+					size: 32,
+					color: 0xffff00,
+					width: FP.width
+				}
+			));
 			
 			add(new Button(120, 178, 80, "Retry", goToGame));
 			add(new Button(120, 216, 80, "Main Menu", goToMenu));
-			//
-			//if (Highscore.setScore(score)) {
-				// New high score!
-				//addGraphic( new Text("New high score!", 0, 150, 
-					//{
-						//align: "center",
-						//size: 32,
-						//color: 0xffff00,
-						//width: FP.width
-					//}
-				//));
-			//}
 			
 			FP.engine.paused = true;
 			MochiScores.showLeaderboard( {
-				'score': this.score,
+				score: _score,
 				onClose: function():void {
 					trace("CLOSING SCORES!!!!!!!!!!!");
 					FP.engine.paused = false;
