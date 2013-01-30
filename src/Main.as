@@ -32,6 +32,7 @@ package
 		
 		override public function init():void 
 		{
+			FP.engine.parent.setChildIndex(FP.engine, 0);
 			FP.world = new MenuWorld();
 			Highscore.init("meteorbike");
 			

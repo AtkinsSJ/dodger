@@ -121,6 +121,7 @@ package
 		}
 		
 		private function die():void {
+			(world as GameWorld).alive = false;
 			(FP.engine as Main).sound.play("scream");
 			var deathTween:MultiVarTween = new MultiVarTween(function():void {
 				(world as GameWorld).gameOver();

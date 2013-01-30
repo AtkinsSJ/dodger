@@ -30,7 +30,7 @@ package
 		public var rockDropTime:Number;
 		private var homingCountdown:int;
 		
-		private var alive:Boolean = true;
+		public var alive:Boolean = true;
 		
 		public var emitter:Emitter;
 		

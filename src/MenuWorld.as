@@ -78,7 +78,6 @@ package
 		}
 		
 		private function showScores():void {
-			FP.engine.parent.setChildIndex(FP.engine, 0);
 			FP.engine.paused = true;
 			MochiScores.showLeaderboard( {
 				onDisplay: function():void { trace("SHOWING SCORES!!!!!!!!!!!"); },
