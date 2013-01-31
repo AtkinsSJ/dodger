@@ -42,8 +42,8 @@ package
 		[Embed(source = "../assets/riderless.png")] public static const NORIDER_IMG:Class;
 		
 		// AUDIO!
-		[Embed(source = "../assets/Breakdown.mp3")] public static const BREAKDOWN_MP3:Class;
-		[Embed(source = "../assets/Riptide2.mp3")] public static const RIPTIDE_MP3:Class;
+		[Embed(source = "../assets/BreakdownComp.mp3")] public static const BREAKDOWN_MP3:Class;
+		[Embed(source = "../assets/RiptideComp.mp3")] public static const RIPTIDE_MP3:Class;
 		
 		[Embed(source = "../assets/click.mp3")] public static const CLICK_MP3:Class;
 		[Embed(source = "../assets/smash2.mp3")] public static const SMASH_MP3:Class;
