@@ -1,11 +1,13 @@
-Meteor Strike
+MeteorBike
 =============
 
-Meteor Strike was originally going to be one of a series of 49 simple games I was going to create,
-but this never happened. Instead, I'm polishing it up.
+MeteorBike is my January entry for onegameamonth.com, a monthly game development challenge!
+See http://www.onegameamonth.com/AtkinsSJ for all of my entries.
 
 License
 -------
+
+Music is copyright Kevin MacLeod (incompetech.com)
 
 > Copyright (C) 2013 Samuel Atkins
 > 

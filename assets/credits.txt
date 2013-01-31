@@ -1,12 +1,12 @@
 Meteor Strike
 Copyright 2013 Samuel Atkins
 
-Music:
-'Breakdown' and 'Riptide',
-Copyright Kevin MacLeod (incompetech.com)
+Music: 'Breakdown' and 'Riptide',
+Copyright Kevin MacLeod http://incompetech.com
 
-Sounds:
-All Creative Commons, from http://www.freesound.org/
+Sounds All Creative Commons, from http://www.freesound.org/
 
 Makes use of the Flashpunk library:
 Copyright 2009 - 2011 Chevy Ray Johnston
+
+Leaderboards powered by MochiScores https://www.mochimedia.com/

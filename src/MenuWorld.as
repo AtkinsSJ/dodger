@@ -35,7 +35,7 @@ package
 			}
 			fadeIn = true;
 			
-			addGraphic( new Text("Build: " + Version.Build, 12, 220,
+			addGraphic( new Text("Version: " + Version.Major + "." + Version.Minor, 12, 220,
 				{
 					size: 8,
 					color: 0x666666
