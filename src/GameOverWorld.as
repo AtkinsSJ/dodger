@@ -18,6 +18,7 @@ package
 		{
 			super(false, Assets.BACKGROUND_IMG);
 			_score = myScore;
+			(FP.engine as Main).kongregate.stats.submit("Highscore", myScore);
 		}
 		
 		override public function begin():void 
